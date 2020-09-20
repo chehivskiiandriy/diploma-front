@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
+    "start:prod": "npm run build && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/chehivskiiandriy/diploma-front#readme",
   "dependencies": {
     "classnames": "^2.2.6",
+    "express": "^4.17.1",
     "history": "^4.10.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
