@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
+import { NavLink } from 'react-router-dom';
 
-const NavItem = ({ item }) => {
+const NavItem = ({ path, name, exact }) => {
   const [{ x, tX, tY }, set] = useSpring(() => ({
     immediate: true,
     from: { x: 0, tX: -50, tY: -50 },
@@ -46,9 +47,9 @@ const NavItem = ({ item }) => {
   };
 
   return (
-    <div className="nav-item" onClick={handler} onMouseDown={onMouseDownHandler}>
+    <NavLink to={path} exact={exact} className="nav-item" onClick={handler} onMouseDown={onMouseDownHandler}>
       <div className="nav-text">
-        {item.value}
+        {name}
       </div>
       <animated.div
         className="nav-ripple"
@@ -64,12 +65,18 @@ const NavItem = ({ item }) => {
             .interpolate(value => `translate(-50%, -50%) scale(${value})`),
         }}
       />
-    </div>
+    </NavLink>
   );
 };
 
 NavItem.propTypes = {
-  item: PropTypes.shape().isRequired,
+  path: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  exact: PropTypes.bool,
+};
+
+NavItem.defaultProps = {
+  exact: true,
 };
 
 export default NavItem;

@@ -6,8 +6,7 @@ const initialState = {
   id: null,
   email: '',
   isLoaded: false,
-  main: true,
-  role: 'teacher',
+  role: '',
 };
 
 export default handleActions(

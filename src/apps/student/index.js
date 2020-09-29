@@ -1,23 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import MainApp from './PageByRoute';
+import PageByRoute from './PageByRoute';
 
 import store from './store';
 
 console.log('[STUDENT] init');
 
-const App = ({ history }) => (
+const App = () => (
   <Provider store={store}>
-    <Router history={history}>
-      <MainApp />
-    </Router>
+    <PageByRoute />
   </Provider>
 );
-
-App.propTypes = {
-  history: PropTypes.shape().isRequired,
-};
 
 export default App;

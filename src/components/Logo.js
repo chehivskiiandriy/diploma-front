@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
 
 const Logo = ({ menuToggle }) => {
@@ -57,8 +58,11 @@ const Logo = ({ menuToggle }) => {
   );
 };
 
-export default Logo;
+Logo.propTypes = {
+  menuToggle: PropTypes.func.isRequired,
+};
 
+export default Logo;
 
 {/*<div id="waves" className="style-scope paper-ripple">*/}
 {/*  <div className="wave-container style-scope paper-ripple"*/}

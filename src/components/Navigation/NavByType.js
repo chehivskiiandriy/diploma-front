@@ -1,16 +1,18 @@
 import React from 'react';
 
-import NavSwitch from './NavSwitch';
+import SwitchByRole from '../SwitchByRole';
 import StudentNav from './StudentNav';
 import TeacherNav from './TeacherNav';
+import PersonalNav from './PersonalNav';
 
 import { ROLES } from '../../constants';
 
 const NavByType = () => (
-  <NavSwitch>
+  <SwitchByRole>
+    <PersonalNav type={ROLES.personal} />
     <StudentNav type={ROLES.student} />
     <TeacherNav type={ROLES.teacher} />
-  </NavSwitch>
+  </SwitchByRole>
 );
 
 export default NavByType;

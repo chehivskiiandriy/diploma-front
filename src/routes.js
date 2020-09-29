@@ -5,18 +5,22 @@ const routesMap = {
   profile: 'profile',
   settings: 'settings',
   login: 'login',
+  logout: 'logout',
 
   admin: {
     $root: 'admin',
     departments: 'departments',
+    heads: 'heads',
+    login: 'login',
+    logout: 'logout',
   },
 
   head: {
-
+    $root: 'head',
   },
 
   teacher: {
-
+    $root: 'teacher',
   },
 
   student: {
@@ -25,7 +29,9 @@ const routesMap = {
   },
 
   personal: {
-
+    $root: 'personal',
+    groups: 'groups',
+    students: 'students',
   },
 };
 
@@ -40,8 +46,8 @@ const buildRoutes = routes => {
   const currentRoot = routes.$root;
 
   return Object.entries(routes).reduce(
-    (routes, [name, route]) => ({
-      ...routes,
+    (rts, [name, route]) => ({
+      ...rts,
       [name]: typeof route === 'string'
         ? join(currentRoot, route, checkIsRoot(name))
         : buildRoutes({ ...route, $root: join(currentRoot, route.$root) }),

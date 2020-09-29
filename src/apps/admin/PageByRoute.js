@@ -4,15 +4,15 @@ import { Switch, Route, Redirect } from 'react-router';
 import LoaderWrapper from '../../components/LoaderWrapper';
 import routes from '../../routes';
 
-const MyTheme = lazy(() => import('./containers/MyTheme'));
-const Profile = lazy(() => import('../../containers/Profile'));
+const Login = lazy(() => import('./containers/Login'));
+const Departments = lazy(() => import('./containers/Departments'));
 
 const PageByRoute = () => (
   <Suspense fallback={<LoaderWrapper />}>
     <Switch>
-      <Route exact path={routes.home} component={Profile} />
-      <Route exact path={routes.student.myTheme} component={MyTheme} />
-      <Redirect to={routes.home} />
+      <Route exact path={routes.admin.login} component={Login} />
+      <Route exact path={routes.admin.departments} component={Departments} />
+      <Redirect to={routes.admin.login} />
     </Switch>
   </Suspense>
 

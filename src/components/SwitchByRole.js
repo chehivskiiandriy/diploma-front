@@ -1,12 +1,12 @@
 import { Children, isValidElement } from 'react';
 import { useSelector } from 'react-redux';
 
-import { userRoleSelector } from '../../store/user/selectors';
+import { userRoleSelector } from '../store/user/selectors';
 
-const NavSwitch = ({ children }) => {
+const SwitchByRole = ({ children }) => {
   const type = useSelector(userRoleSelector);
 
-  let element;
+  let element = null;
 
   Children.forEach(children, child => {
     if (!element && isValidElement(child) && child.props.type === type) {
@@ -14,7 +14,7 @@ const NavSwitch = ({ children }) => {
     }
   });
 
-  return element || null;
+  return element;
 };
 
-export default NavSwitch;
+export default SwitchByRole;
