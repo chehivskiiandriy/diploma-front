@@ -1,0 +1,89 @@
+// -----------
+// Typography
+// -----------
+
+// Font Sizes
+$font-size--3xs: 10px;
+$font-size--2xs: 11px;
+$font-size--xs: 12px;
+$font-size--sm: 14px;
+$font-size--md: 16px;
+$font-size--lg: 20px;
+$font-size--xl: 24px;
+$font-size--heading: 28px;
+
+// Font Family
+$font--default: "Open Sans", sans-serif;
+
+// Mixins
+@mixin font ($font-weight, $font-size, $line-height, $color) {
+  font: normal $font-weight $font-size $font--default;
+  line-height: $line-height;
+  color: $color;
+}
+
+// Font-size
+.size-xs { // 12px
+  font-size: $font-size--xs;
+}
+
+.size-sm { // 14px
+  font-size: $font-size--sm;
+}
+
+.size-md { // 16px
+  font-size: $font-size--md;
+}
+
+.size-lg { // 20px
+  font-size: $font-size--lg;
+}
+
+.size-xl { // 24px
+  font-size: $font-size--xl;
+}
+
+.size-heading { // 28px
+  font-size: $font-size--heading;
+}
+
+
+// Line-height
+.line-xs { // 12px
+  line-height: $font-size--xs;
+}
+
+.line-sm { // 16px
+  line-height: $font-size--md;
+}
+
+.line-md { // 20px
+  line-height: $font-size--lg;
+}
+
+.line-lg { // 24px
+  line-height: $font-size--xl;
+}
+
+.line-xl { // 28px
+  line-height: $font-size--heading;
+}
+
+
+// Font weight
+.weight-normal {
+  font-weight: normal;
+}
+
+.weight-bold {
+  font-weight: 600;
+}
+
+// Text-decoration
+.decoration-underline {
+  text-decoration: underline;
+}
+
+.decoration-none {
+  text-decoration: none;
+}

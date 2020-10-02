@@ -1,0 +1,137 @@
+// Indents size
+$indent-2xs: 4px;
+$indent-xs: 8px;
+$indent-sm: 12px;
+$indent-md: 16px;
+$indent-lg: 20px;
+$indent-xl: 24px;
+$indent-2xl: 32px;
+$indent-3xl: 40px;
+
+.indent-2xs-top { // 4px
+  margin-top: $indent-2xs;
+}
+
+.indent-2xs-right {
+  margin-right: $indent-2xs;
+}
+
+.indent-2xs-bottom {
+  margin-bottom: $indent-2xs;
+}
+
+.indent-2xs-left {
+  margin-left: $indent-2xs;
+}
+
+.indent-xs-top { // 8px
+  margin-top: $indent-xs;
+}
+
+.indent-xs-right {
+  margin-right: $indent-xs;
+}
+
+.indent-xs-bottom {
+  margin-bottom: $indent-xs;
+}
+
+.indent-xs-left {
+  margin-left: $indent-xs;
+}
+
+.indent-sm-top { // 12px
+  margin-top: $indent-sm;
+}
+
+.indent-sm-right {
+  margin-right: $indent-sm;
+}
+
+.indent-sm-bottom {
+  margin-bottom: $indent-sm;
+}
+
+.indent-sm-left {
+  margin-left: $indent-sm;
+}
+
+.indent-md-top { // 16px
+  margin-top: $indent-md;
+}
+
+.indent-md-right {
+  margin-right: $indent-md;
+}
+
+.indent-md-bottom {
+  margin-bottom: $indent-md;
+}
+
+.indent-md-left {
+  margin-left: $indent-md;
+}
+
+.indent-lg-top { // 20px
+  margin-top: $indent-lg;
+}
+
+.indent-lg-right {
+  margin-right: $indent-lg;
+}
+
+.indent-lg-bottom {
+  margin-bottom: $indent-lg;
+}
+
+.indent-lg-left {
+  margin-left: $indent-lg;
+}
+
+.indent-xl-top { // 24px
+  margin-top: $indent-xl;
+}
+
+.indent-xl-right {
+  margin-right: $indent-xl;
+}
+
+.indent-xl-bottom {
+  margin-bottom: $indent-xl;
+}
+
+.indent-xl-left {
+  margin-left: $indent-xl;
+}
+
+.indent-2xl-top { // 32px
+  margin-top: $indent-2xl;
+}
+
+.indent-2xl-right {
+  margin-right: $indent-2xl;
+}
+
+.indent-2xl-bottom {
+  margin-bottom: $indent-2xl;
+}
+
+.indent-2xl-left {
+  margin-left: $indent-2xl;
+}
+
+.indent-3xl-top { // 40px
+  margin-top: $indent-3xl;
+}
+
+.indent-3xl-right {
+  margin-right: $indent-3xl;
+}
+
+.indent-3xl-bottom {
+  margin-bottom: $indent-3xl;
+}
+
+.indent-3xl-left {
+  margin-left: $indent-3xl;
+}
