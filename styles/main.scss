@@ -11,9 +11,13 @@
 @import "components/pagination";
 
 @import "layout/header";
+@import "pages/login";
 
 #main-root {
   background: #f9f9f9;
+  display: block;
+  position: absolute;
+  width: 100%;
 }
 
 .ripple {

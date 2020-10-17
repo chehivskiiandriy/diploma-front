@@ -1,27 +1,50 @@
-import { updateUser } from './actions';
+import { updateUser, setAuth } from './actions';
+import { LOGIN_LOADING } from '../loading/constants';
+import { loadingThunk } from '../loading/thunks';
+import { setToken, getToken, COOKIE_TOKEN_KEY } from '../../api/token';
+import api from '../../api';
 
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+export const loginAction = params => async dispatch => {
+  try {
+    const { accessToken } = await api.post('auth/login', params);
 
-// todo test
+    setToken(COOKIE_TOKEN_KEY, accessToken, { expires: 1 });
+    dispatch(setAuth(!!accessToken));
+  } catch (e) {
+    dispatch(setAuth(false));
+  }
+};
+
+export const login = loadingThunk(LOGIN_LOADING)(loginAction);
+
 export const getUser = () => async dispatch => {
   try {
-    await delay(1000);
+    const user = await api.get('users/current');
 
-    dispatch(updateUser({ isLoaded: true, role: 'personal' }));
+    dispatch(updateUser({ isLoaded: true, ...user }));
   } catch (e) {
     dispatch(updateUser({ isLoaded: true }));
   }
 };
 
-// todo test
 export const checkToken = () => async dispatch => {
-  const token = 'ff';
+  try {
+    const token = await getToken(COOKIE_TOKEN_KEY, false);
 
-  if (token) {
-    dispatch(getUser());
-  } else {
+    if (!token) {
+      dispatch(setAuth(false));
+      dispatch(updateUser({ isLoaded: true }));
+      return;
+    }
+
+    if (token) {
+      dispatch(getUser());
+      dispatch(setAuth(true));
+    }
+
+    dispatch(updateUser({ isLoaded: true }));
+  } catch (e) {
+    dispatch(setAuth(false));
     dispatch(updateUser({ isLoaded: true }));
   }
 };

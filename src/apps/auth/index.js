@@ -1,11 +1,6 @@
 import React from 'react';
+import PageByRoute from './PageByRoute';
 
-const Auth = () => {
-  return (
-    <div>
-      Auth
-    </div>
-  );
-};
+const Auth = () => <PageByRoute />;
 
 export default Auth;

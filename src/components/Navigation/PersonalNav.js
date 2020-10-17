@@ -8,7 +8,7 @@ import labSvg from '../../assets/icons/lab.svg';
 import studentSvg from '../../assets/icons/student.svg';
 import exitSvg from '../../assets/icons/exit.svg';
 
-const StudentNav = () => (
+const PersonalNav = () => (
   <nav className="nav">
     <div className="nav-section">
       <NavItem path={routes.personal.laboratories} name="Лабораторії" icon={labSvg} />
@@ -28,4 +28,4 @@ const StudentNav = () => (
   </nav>
 );
 
-export default StudentNav;
+export default PersonalNav;

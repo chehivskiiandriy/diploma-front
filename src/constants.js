@@ -1,8 +1,7 @@
 // todo admin has own authorizations
 export const ROLES = {
-  admin: 'admin',
-  student: 'student',
-  teacher: 'teacher',
-  head: 'head',
-  personal: 'personal',
+  admin: 'ADMIN',
+  student: 'STUDENT',
+  teacher: 'TEACHER',
+  personal: 'PERSONAL',
 };
