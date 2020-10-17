@@ -2,16 +2,18 @@ import React, { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { login } from '../../../store/auth/thunks';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
+import Link from '../../../components/Link';
 import { isTaskLoading } from '../../../store/loading/selectors';
-import { ADMIN_LOGIN_LOADING } from '../../../store/loading/constants';
+import { LOGIN_LOADING } from '../../../store/loading/constants';
 import useFormErrors from '../../../hooks/useFormErrors';
+import routes from '../../../routes';
+import { resetPassword } from '../../../store/user/thunks';
 
-const Login = () => {
+const ForgotPassword = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(state => isTaskLoading(state, ADMIN_LOGIN_LOADING));
+  const loading = useSelector(state => isTaskLoading(state, LOGIN_LOADING));
   const {
     handleSubmit, register, errors,
   } = useForm({ mode: 'onBlur' });
@@ -21,37 +23,25 @@ const Login = () => {
   ), [isErrorsExist, loading]);
 
   const onSubmit = async data => {
-    dispatch(login(data));
+    dispatch(resetPassword(data));
   };
 
   return (
     <div className="authForm">
+      <h1>Забули пароль?</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>Diploma System</h1>
-        <p>Admin</p>
         <div className="inputs">
           <Input
-            id="username"
-            name="username"
+            id="email"
+            name="email"
             ref={register({
-              required: 'Будь ласка, введіть username',
-              validate: value => value.trim() !== '' || 'Будь ласка, введіть коректний username',
+              required: 'Будь ласка, введіть email',
+              validate: value => value.trim() !== '' || 'Будь ласка, введіть коректний email',
             })}
             errors={errors}
-            label="Username"
-            placeholder="Введіть username"
+            label="Email"
+            placeholder="Введіть email"
             autoFocus
-          />
-          <Input
-            id="password"
-            name="password"
-            ref={register({
-              required: 'Будь ласка, введіть пароль',
-              validate: value => value.trim() !== '' || 'Будь ласка, введіть коректний пароль',
-            })}
-            errors={errors}
-            label="Пароль"
-            placeholder="Введіть пароль"
           />
         </div>
         <div className="actions">
@@ -61,12 +51,17 @@ const Login = () => {
             label="Submit"
             disabled={disabled}
           >
-            Ввійти
+            Скинути пароль
           </Button>
+        </div>
+        <div className="actions">
+          <Link to={routes.login}>
+            Вхід
+          </Link>
         </div>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default ForgotPassword;

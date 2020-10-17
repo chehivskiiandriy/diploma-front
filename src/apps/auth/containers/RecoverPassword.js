@@ -1,17 +1,22 @@
 import React, { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 
-import { login } from '../../../store/auth/thunks';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
+import { isPasswordRecovered } from '../../../store/user/selectors';
 import { isTaskLoading } from '../../../store/loading/selectors';
-import { ADMIN_LOGIN_LOADING } from '../../../store/loading/constants';
+import { LOGIN_LOADING } from '../../../store/loading/constants';
 import useFormErrors from '../../../hooks/useFormErrors';
+import { recoverPassword } from '../../../store/user/thunks';
+import routes from '../../../routes';
 
-const Login = () => {
+const RecoverPassword = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(state => isTaskLoading(state, ADMIN_LOGIN_LOADING));
+  const history = useHistory();
+  const loading = useSelector(state => isTaskLoading(state, LOGIN_LOADING));
+  const passwordRecovered = useSelector(isPasswordRecovered);
   const {
     handleSubmit, register, errors,
   } = useForm({ mode: 'onBlur' });
@@ -21,25 +26,35 @@ const Login = () => {
   ), [isErrorsExist, loading]);
 
   const onSubmit = async data => {
-    dispatch(login(data));
+    if (data.prepassword !== data.password) {
+      return;
+    }
+    const { search } = history.location;
+    const token = search.split('?token=')[1];
+    if (token) {
+      dispatch(recoverPassword({ password: data.password, token }));
+    }
   };
+
+  if (passwordRecovered) {
+    history.replace(routes.login);
+  }
 
   return (
     <div className="authForm">
+      <h1>Відновлення паролю</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>Diploma System</h1>
-        <p>Admin</p>
         <div className="inputs">
           <Input
-            id="username"
-            name="username"
+            id="prepassword"
+            name="prepassword"
             ref={register({
-              required: 'Будь ласка, введіть username',
-              validate: value => value.trim() !== '' || 'Будь ласка, введіть коректний username',
+              required: 'Будь ласка, введіть пароль',
+              validate: value => value.trim() !== '' || 'Будь ласка, введіть коректний пароль',
             })}
             errors={errors}
-            label="Username"
-            placeholder="Введіть username"
+            label="Пароль"
+            placeholder="Введіть пароль"
             autoFocus
           />
           <Input
@@ -50,7 +65,7 @@ const Login = () => {
               validate: value => value.trim() !== '' || 'Будь ласка, введіть коректний пароль',
             })}
             errors={errors}
-            label="Пароль"
+            label="Підтвердіть пароль"
             placeholder="Введіть пароль"
           />
         </div>
@@ -61,7 +76,7 @@ const Login = () => {
             label="Submit"
             disabled={disabled}
           >
-            Ввійти
+            Відновити пароль
           </Button>
         </div>
       </form>
@@ -69,4 +84,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default RecoverPassword;

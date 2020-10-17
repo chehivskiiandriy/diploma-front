@@ -7,6 +7,7 @@ const initialState = {
   email: '',
   isLoaded: false,
   role: '',
+  passwordRecovered: false,
 };
 
 export default handleActions(
@@ -17,6 +18,14 @@ export default handleActions(
     [AC.SET_AUTH]: (store, { payload }) => ({
       ...store,
       isAuthorized: payload,
+    }),
+    [AC.SUCCESS_RECOVER_PASSWORD]: (store) => ({
+      ...store,
+      passwordRecovered: true,
+    }),
+    [AC.RESET_PASSWORD]: (store) => ({
+      ...store,
+      passwordRecovered: false,
     }),
   },
   initialState,

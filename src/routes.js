@@ -5,6 +5,8 @@ const routesMap = {
   profile: 'profile',
   settings: 'settings',
   login: 'login',
+  forgotPassword: 'forgot-password',
+  recoverPassword: 'recover-password',
   logout: 'logout',
 
   admin: {
