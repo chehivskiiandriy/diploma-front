@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AuthApp } from '../apps';
@@ -7,7 +6,6 @@ import Layout from '../components/Layout';
 import AppByType from '../components/AppByType';
 import NavByType from '../components/Navigation/NavByType';
 import LoaderWrapper from '../components/LoaderWrapper';
-import routes from '../routes';
 import { userRoleSelector, isUserLoadedSelector } from '../store/user/selectors';
 import { checkToken } from '../store/user/thunks';
 
@@ -33,8 +31,6 @@ const User = () => {
 
   return (
     <Layout navigation={<NavByType />}>
-      <Link to={routes.home}>Profile</Link>
-      <Link to={routes.student.myTheme}>MyTheme</Link>
       <AppByType />
     </Layout>
   );

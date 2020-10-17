@@ -1,11 +1,14 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
-const Teacher = () => {
-  return (
-    <div>
-      Teacher
-    </div>
-  );
-};
+import PageByRoute from './PageByRoute';
+import { TeacherContext } from './store/context';
+import store from './store';
 
-export default Teacher;
+const App = () => (
+  <Provider store={store} context={TeacherContext}>
+    <PageByRoute />
+  </Provider>
+);
+
+export default App;

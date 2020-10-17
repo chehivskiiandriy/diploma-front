@@ -1,24 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { AdminApp } from '../apps';
 import Layout from '../components/Layout';
 import AdminNav from '../components/Navigation/AdminNav';
-import routes from '../routes';
+import Login from '../apps/admin/containers/Login';
+import { isAdminLoggedSelector } from '../store/auth/selectors';
 
 console.log('[ADMIN MODULE] init');
 
-const isAdminLogged = true;
-
 const Admin = () => {
+  const isAdminLogged = useSelector(isAdminLoggedSelector);
+
   if (!isAdminLogged) {
-    return <div>Login</div>;
+    return <Login />;
   }
 
   return (
     <Layout navigation={<AdminNav />}>
-      Admin
-      <Link to={routes.home}>Profile</Link>
       <AdminApp />
     </Layout>
   );

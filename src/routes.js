@@ -17,21 +17,38 @@ const routesMap = {
 
   head: {
     $root: 'head',
+    personal: 'personal',
   },
 
   teacher: {
     $root: 'teacher',
+    myThemes: 'my-themes',
+    themes: 'themes',
+    teacherLoad: 'teacher-load',
+    schedule: 'schedule',
   },
 
   student: {
     $root: 'student',
     myTheme: 'my-theme',
+    themes: 'themes',
+    teacherLoad: 'teacher-load',
+    schedule: 'schedule',
   },
 
   personal: {
     $root: 'personal',
+    laboratories: 'laboratory',
+    laboratoriesDirections: 'laboratory-directions',
+    degrees: 'degrees',
+    academicYears: 'academic-years',
+    academicDegrees: 'academic-degrees',
     groups: 'groups',
+    teacherLoad: 'teacher-load',
     students: 'students',
+    teachers: 'teachers',
+    schedule: 'schedule',
+    themes: 'themes',
   },
 };
 

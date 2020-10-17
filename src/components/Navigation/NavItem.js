@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
 import { NavLink } from 'react-router-dom';
 
-const NavItem = ({ path, name, exact }) => {
+import Icon from '../Icon';
+
+const NavItem = ({
+  path, name, icon, exact,
+}) => {
   const [{ x, tX, tY }, set] = useSpring(() => ({
     immediate: true,
     from: { x: 0, tX: -50, tY: -50 },
@@ -48,6 +52,9 @@ const NavItem = ({ path, name, exact }) => {
 
   return (
     <NavLink to={path} exact={exact} className="nav-item" onClick={handler} onMouseDown={onMouseDownHandler}>
+      <div className="nav-icon">
+        <Icon id={icon.id} />
+      </div>
       <div className="nav-text">
         {name}
       </div>
@@ -72,6 +79,9 @@ const NavItem = ({ path, name, exact }) => {
 NavItem.propTypes = {
   path: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  icon: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }).isRequired,
   exact: PropTypes.bool,
 };
 
