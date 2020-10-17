@@ -1,4 +1,4 @@
-import { updateUser, setAuth } from './actions';
+import { updateUser, setAuth, successRecoverPassword } from './actions';
 import { LOGIN_LOADING } from '../loading/constants';
 import { loadingThunk } from '../loading/thunks';
 import { setToken, getToken, COOKIE_TOKEN_KEY } from '../../api/token';
@@ -46,5 +46,23 @@ export const checkToken = () => async dispatch => {
   } catch (e) {
     dispatch(setAuth(false));
     dispatch(updateUser({ isLoaded: true }));
+  }
+};
+
+export const resetPassword = params => async dispatch => {
+  try {
+    await api.post('auth/reset-password', params);
+    dispatch(resetPassword());
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const recoverPassword = params => async dispatch => {
+  try {
+    await api.post('auth/recover-password', params);
+    dispatch(successRecoverPassword());
+  } catch (e) {
+    console.log(e);
   }
 };

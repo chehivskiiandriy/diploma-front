@@ -28,19 +28,18 @@
 }
 
 .error-message {
-  position: absolute;
   color: #ff4444;
-  top: 105%;
   font-size: 13px;
+  margin-top: 4px;
 }
 
 .input-container {
   position: relative;
-  margin-bottom: 22px;
+  height: 80px;
+  margin-bottom: 5px;
 }
 
 .label {
   display: inline-block;
   padding-bottom: 3px;
-  padding-left: 6px;
 }

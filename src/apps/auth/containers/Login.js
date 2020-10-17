@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../store/user/thunks';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
+import Link from '../../../components/Link';
 import { isTaskLoading } from '../../../store/loading/selectors';
 import { LOGIN_LOADING } from '../../../store/loading/constants';
 import useFormErrors from '../../../hooks/useFormErrors';
+import routes from '../../../routes';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -25,10 +27,10 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className="authForm">
       <h1>Diploma System</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className="inputs">
           <Input
             id="email"
             name="email"
@@ -62,6 +64,11 @@ const Login = () => {
           >
             Ввійти
           </Button>
+        </div>
+        <div className="actions">
+          <Link to={routes.forgotPassword}>
+            Забули пароль?
+          </Link>
         </div>
       </form>
     </div>
