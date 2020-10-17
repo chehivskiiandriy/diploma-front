@@ -1,13 +1,14 @@
 import React from 'react';
-import { Router } from 'react-router';
+import { Provider } from 'react-redux';
 
-import history from '../../history';
 import PageByRoute from './PageByRoute';
+import { PersonalContext } from './store/context';
+import store from './store';
 
 const App = () => (
-  <Router history={history}>
+  <Provider store={store} context={PersonalContext}>
     <PageByRoute />
-  </Router>
+  </Provider>
 );
 
 export default App;

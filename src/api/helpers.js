@@ -1,5 +1,6 @@
 import { requestMethods, commonHeaders } from './constants';
 import { getQuery, removeSlashFromStart, ensureSlash } from './utils';
+import { COOKIE_ADMIN_TOKEN_KEY, COOKIE_TOKEN_KEY, deleteToken } from './token';
 
 export const check = response => (
   response.ok ? response : Promise.reject(response)
@@ -81,7 +82,13 @@ export const isUnauthorizedError = err => (
 );
 
 export const redirectUnauthorized = () => {
-  global.location.href = '/login';
+  if (global.location.pathname.includes('admin')) {
+    deleteToken(COOKIE_ADMIN_TOKEN_KEY);
+    global.location.href = '/admin/login';
+  } else {
+    deleteToken(COOKIE_TOKEN_KEY);
+    global.location.href = '/login';
+  }
 };
 
 export const resolveUnauthorized = err => (

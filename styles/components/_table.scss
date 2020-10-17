@@ -1,0 +1,40 @@
+.table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.tr {
+  .status_0 {
+    background: rgb(255, 228, 224);
+  }
+  .status_1 {
+    background: rgb(239, 249, 225);
+  }
+  .status_2 {
+    background: rgb(240, 250, 254);
+  }
+}
+
+.th {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  font-weight: 400;
+}
+
+.td {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  vertical-align: middle;
+
+  .small-cell {
+    @media (min-width: 501px) {
+      width: 1%;
+      white-space: nowrap;
+    }
+  }
+}
