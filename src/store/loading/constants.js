@@ -1,4 +1,5 @@
 export const ADMIN_LOGIN_LOADING = 'loading/adminLogin';
+export const LOGIN_LOADING = 'loading/login';
 
 export const GET_DEPARTMENTS_LOADING = 'loading/getDepartments';
 export const CREATE_DEPARTMENT_LOADING = 'loading/createDepartment';

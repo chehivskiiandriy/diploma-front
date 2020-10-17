@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router';
 
 import LoaderWrapper from '../../components/LoaderWrapper';
 import routes from '../../routes';
+import Logout from '../auth/containers/Logout';
 
 const MyTheme = lazy(() => import('./containers/MyTheme'));
 const Profile = lazy(() => import('../../containers/Profile'));
@@ -12,6 +13,7 @@ const PageByRoute = () => (
     <Switch>
       <Route exact path={routes.home} component={Profile} />
       <Route exact path={routes.student.myTheme} component={MyTheme} />
+      <Route exact path={routes.logout} component={Logout} />
       <Redirect to={routes.home} />
     </Switch>
   </Suspense>

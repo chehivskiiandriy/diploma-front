@@ -3,21 +3,18 @@ import { Switch, Route, Redirect } from 'react-router';
 
 import LoaderWrapper from '../../components/LoaderWrapper';
 import routes from '../../routes';
-import Logout from '../auth/containers/Logout';
 
-const MyThemes = lazy(() => import('./containers/MyThemes'));
-const Profile = lazy(() => import('../../containers/Profile'));
+const Login = lazy(() => import('./containers/Login'));
+const Logout = lazy(() => import('./containers/Logout'));
 
 const PageByRoute = () => (
   <Suspense fallback={<LoaderWrapper />}>
     <Switch>
-      <Route exact path={routes.home} component={Profile} />
-      <Route exact path={routes.teacher.myThemes} component={MyThemes} />
+      <Route exact path={routes.login} component={Login} />
       <Route exact path={routes.logout} component={Logout} />
-      <Redirect to={routes.home} />
+      <Redirect to={routes.login} />
     </Switch>
   </Suspense>
-
 );
 
 export default PageByRoute;
