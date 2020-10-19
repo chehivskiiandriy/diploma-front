@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../../components/Button';
 
 const MyThemeRow = ({
-  theme, editHandler, deleteHandler, openRequests,
+  theme, editHandler, deleteHandler, openRequests, openDeleteStudent,
 }) => {
   const openEditModal = useCallback(() => {
     editHandler(theme);
@@ -18,6 +18,10 @@ const MyThemeRow = ({
     openRequests(theme.requests);
   }, [theme]);
 
+  const openDeleteStudentModal = useCallback(() => {
+    openDeleteStudent(theme.id);
+  }, [theme]);
+
   return (
     <tr className="tr">
       <td className="td">
@@ -29,7 +33,7 @@ const MyThemeRow = ({
           <Button
             size="sm"
             label="Видалити студента"
-            onClick={openDeleteModal}
+            onClick={openDeleteStudentModal}
           >
             Видалити
           </Button>
@@ -48,7 +52,7 @@ const MyThemeRow = ({
         {theme.laboratoryDirection && theme.laboratoryDirection.name}
       </td>
       <td className="td">
-        {!theme.student && (
+        {!theme.student && theme.requests && (
           <Button
             size="sm"
             label="Заявки"
@@ -111,6 +115,7 @@ MyThemeRow.propTypes = {
   editHandler: PropTypes.func.isRequired,
   deleteHandler: PropTypes.func.isRequired,
   openRequests: PropTypes.func.isRequired,
+  openDeleteStudent: PropTypes.func.isRequired,
 };
 
 export default MyThemeRow;
