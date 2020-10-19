@@ -55,3 +55,16 @@ export const GET_TEACHERS_LOAD_LOADING = 'loading/getTeachersLoad';
 export const CREATE_TEACHER_LOAD_LOADING = 'loading/createTeacherLoad';
 export const UPDATE_TEACHER_LOAD_LOADING = 'loading/updateTeacherLoad';
 export const DELETE_TEACHER_LOAD_LOADING = 'loading/deleteTeacherLoad';
+
+export const GET_MY_THEMES_LOADING = 'loading/getMyThemes';
+export const CREATE_MY_THEMES_LOADING = 'loading/createMyTheme';
+export const UPDATE_MY_THEMES_LOADING = 'loading/updateMyTheme';
+export const DELETE_MY_THEMES_LOADING = 'loading/deleteMyTheme';
+
+export const GET_THEMES_LOADING = 'loading/getThemes';
+
+export const GET_REQUESTS_LOADING = 'loading/getRequests';
+export const CREATE_REQUEST_LOADING = 'loading/createRequest';
+export const DELETE_REQUEST_LOADING = 'loading/deleteRequest';
+export const ACCEPT_REQUEST_LOADING = 'loading/acceptRequest';
+export const DECLINE_REQUEST_LOADING = 'loading/declineRequest';

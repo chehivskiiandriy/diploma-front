@@ -55,6 +55,10 @@
 .actions {
   display: flex;
 
+  &--align-center {
+    align-items: center;
+  }
+
   & > *:not(:last-child) {
     margin-right: 12px;
   }

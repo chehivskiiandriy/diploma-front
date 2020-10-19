@@ -34,6 +34,7 @@ const routesMap = {
     $root: 'student',
     myTheme: 'my-theme',
     themes: 'themes',
+    requests: 'requests',
     teacherLoad: 'teacher-load',
     schedule: 'schedule',
   },
