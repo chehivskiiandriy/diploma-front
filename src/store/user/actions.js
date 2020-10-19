@@ -15,3 +15,7 @@ export const successRecoverPassword = createAction(SUCCESS_RECOVER_PASSWORD);
 export const RESET_PASSWORD = 'auth/resetPassword';
 
 export const resetPassword = createAction(RESET_PASSWORD);
+
+export const VERIFY_USER = 'auth/verify';
+
+export const setVerifiedUser = createAction(VERIFY_USER);

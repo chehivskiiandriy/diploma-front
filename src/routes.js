@@ -7,6 +7,7 @@ const routesMap = {
   login: 'login',
   forgotPassword: 'forgot-password',
   recoverPassword: 'recover-password',
+  signUp: 'sign-up',
   logout: 'logout',
 
   admin: {

@@ -27,6 +27,10 @@ export default handleActions(
       ...store,
       passwordRecovered: false,
     }),
+    [AC.VERIFY_USER]: (store, { payload }) => ({
+      ...store,
+      verifiedUser: payload,
+    }),
   },
   initialState,
 );

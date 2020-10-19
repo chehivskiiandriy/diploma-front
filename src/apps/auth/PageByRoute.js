@@ -8,6 +8,7 @@ const Login = lazy(() => import('./containers/Login'));
 const Logout = lazy(() => import('./containers/Logout'));
 const ForgotPassword = lazy(() => import('./containers/ForgotPassword'));
 const RecoverPassword = lazy(() => import('./containers/RecoverPassword'));
+const SignUp = lazy(() => import('./containers/SignUp'));
 
 const PageByRoute = () => (
   <Suspense fallback={<LoaderWrapper />}>
@@ -16,6 +17,7 @@ const PageByRoute = () => (
       <Route exact path={routes.logout} component={Logout} />
       <Route exact path={routes.forgotPassword} component={ForgotPassword} />
       <Route exact path={routes.recoverPassword} component={RecoverPassword} />
+      <Route exact path={routes.signUp} component={SignUp} />
       <Redirect to={routes.login} />
     </Switch>
   </Suspense>
