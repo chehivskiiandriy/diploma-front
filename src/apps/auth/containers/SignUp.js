@@ -47,7 +47,7 @@ const SignUp = () => {
     }
   };
 
-  if (passwordRecovered) {
+  if (passwordRecovered || (verifiedUser && verifiedUser.verified)) {
     history.replace(routes.login);
   }
 

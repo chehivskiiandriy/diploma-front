@@ -2,8 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Icon({ id, size }) {
+  const sizes = size
+    ? {
+      width: size,
+      height: size,
+    }
+    : {};
+
   return (
-    <svg className="svg-icon" width={size} height={size}>
+    <svg className="svg-icon" {...sizes}>
       <use xlinkHref={`#${id}`} />
     </svg>
   );
