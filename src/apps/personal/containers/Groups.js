@@ -11,7 +11,7 @@ import { getAcademicDegrees } from '../store/academicDegree/thunks';
 import { academicYearsSelector } from '../store/academicYear/selectors';
 import { academicDegreesSelector } from '../store/academicDegree/selectors';
 
-const Degrees = () => {
+const Groups = () => {
   const dispatch = usePersonalDispatch();
   const academicYears = usePersonalSelector(academicYearsSelector);
   const academicDegrees = usePersonalSelector(academicDegreesSelector);
@@ -43,4 +43,4 @@ const Degrees = () => {
   );
 };
 
-export default Degrees;
+export default Groups;
