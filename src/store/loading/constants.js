@@ -1,5 +1,6 @@
 export const ADMIN_LOGIN_LOADING = 'loading/adminLogin';
 export const LOGIN_LOADING = 'loading/login';
+export const SIGNUP_LOADING = 'loading/signup';
 
 export const GET_DEPARTMENTS_LOADING = 'loading/getDepartments';
 export const CREATE_DEPARTMENT_LOADING = 'loading/createDepartment';
@@ -65,8 +66,6 @@ export const GET_MY_THEMES_LOADING = 'loading/getMyThemes';
 export const CREATE_MY_THEMES_LOADING = 'loading/createMyTheme';
 export const UPDATE_MY_THEMES_LOADING = 'loading/updateMyTheme';
 export const DELETE_MY_THEMES_LOADING = 'loading/deleteMyTheme';
-
-export const GET_THEMES_LOADING = 'loading/getThemes';
 
 export const GET_REQUESTS_LOADING = 'loading/getRequests';
 export const CREATE_REQUEST_LOADING = 'loading/createRequest';
