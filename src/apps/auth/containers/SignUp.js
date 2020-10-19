@@ -51,8 +51,6 @@ const SignUp = () => {
     history.replace(routes.login);
   }
 
-  console.log('VERIFIED USER', verifiedUser);
-
   return (
     <div className="authForm">
       <h1>Реєстрація</h1>
