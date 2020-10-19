@@ -72,7 +72,7 @@ export const recoverPassword = params => async dispatch => {
 export const verifyUserAction = params => async dispatch => {
   try {
     const data = await api.post('auth/verify', params);
-    dispatch(setVerifiedUser(data.user));
+    dispatch(setVerifiedUser({ ...data.user, verified: data.verified }));
   } catch (e) {
     console.log(e);
   }
