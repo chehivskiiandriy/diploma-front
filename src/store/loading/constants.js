@@ -66,9 +66,15 @@ export const GET_MY_THEMES_LOADING = 'loading/getMyThemes';
 export const CREATE_MY_THEMES_LOADING = 'loading/createMyTheme';
 export const UPDATE_MY_THEMES_LOADING = 'loading/updateMyTheme';
 export const DELETE_MY_THEMES_LOADING = 'loading/deleteMyTheme';
+export const DELETE_STUDENT_FROM_THEME_LOADING = 'loading/deleteStudentFromTheme';
 
 export const GET_REQUESTS_LOADING = 'loading/getRequests';
 export const CREATE_REQUEST_LOADING = 'loading/createRequest';
 export const DELETE_REQUEST_LOADING = 'loading/deleteRequest';
 export const ACCEPT_REQUEST_LOADING = 'loading/acceptRequest';
 export const DECLINE_REQUEST_LOADING = 'loading/declineRequest';
+
+export const GET_PERSONALS_LOADING = 'loading/getPersonals';
+export const CREATE_PERSONAL_LOADING = 'loading/createPersonal';
+export const UPDATE_PERSONAL_LOADING = 'loading/updatePersonal';
+export const DELETE_PERSONAL_LOADING = 'loading/deletePersonal';

@@ -12,7 +12,7 @@ import {
   UPDATE_MY_THEMES_LOADING,
   DELETE_MY_THEMES_LOADING,
   ACCEPT_REQUEST_LOADING,
-  DELETE_REQUEST_LOADING, DECLINE_REQUEST_LOADING
+  DELETE_REQUEST_LOADING, DECLINE_REQUEST_LOADING, DELETE_STUDENT_FROM_THEME_LOADING
 } from '../../../../store/loading/constants';
 
 export const getMyThemesAction = () => async dispatch => {
@@ -86,3 +86,17 @@ export const declineRequestAction = id => async dispatch => {
 };
 
 export const declineRequest = loadingThunk(DECLINE_REQUEST_LOADING)(declineRequestAction);
+
+export const deleteStudentFromThemeAction = id => async dispatch => {
+  try {
+    await api.delete(`/theme/${id}/student`);
+
+    dispatch(getMyThemesAction());
+  } catch (e) {
+    //
+  }
+};
+
+export const deleteStudentFromTheme = (
+  loadingThunk(DELETE_STUDENT_FROM_THEME_LOADING)(deleteStudentFromThemeAction)
+);
