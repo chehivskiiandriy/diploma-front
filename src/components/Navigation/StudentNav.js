@@ -10,6 +10,8 @@ import exitSvg from '../../assets/icons/exit.svg';
 const StudentNav = () => (
   <nav className="nav">
     <div className="nav-section">
+      <NavItem path={routes.student.themes} name="Теми" icon={newspaperSvg} />
+      <NavItem path={routes.student.requests} name="Заявки" icon={newspaperSvg} />
       <NavItem path={routes.student.myTheme} name="Моя тема" icon={newspaperSvg} />
     </div>
     <div className="nav-section">
