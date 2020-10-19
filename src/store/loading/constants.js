@@ -31,6 +31,11 @@ export const CREATE_GROUP_LOADING = 'loading/createGroup';
 export const UPDATE_GROUP_LOADING = 'loading/updateGroup';
 export const DELETE_GROUP_LOADING = 'loading/deleteGroup';
 
+export const GET_THEMES_LOADING = 'loading/getThemes';
+export const CREATE_THEME_LOADING = 'loading/createTheme';
+export const UPDATE_THEME_LOADING = 'loading/updateTheme';
+export const DELETE_THEME_LOADING = 'loading/deleteTheme';
+
 export const GET_STUDENTS_LOADING = 'loading/getStudents';
 export const CREATE_STUDENT_LOADING = 'loading/createStudent';
 export const UPDATE_STUDENT_LOADING = 'loading/updateStudent';

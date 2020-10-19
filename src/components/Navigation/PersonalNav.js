@@ -7,6 +7,7 @@ import userSvg from '../../assets/icons/user.svg';
 import labSvg from '../../assets/icons/lab.svg';
 import studentSvg from '../../assets/icons/student.svg';
 import exitSvg from '../../assets/icons/exit.svg';
+import themeSvg from '../../assets/icons/newspaper.svg';
 
 const PersonalNav = () => (
   <nav className="nav">
@@ -20,6 +21,7 @@ const PersonalNav = () => (
       <NavItem path={routes.personal.teacherLoad} name="Навантаження" icon={labSvg} />
       <NavItem path={routes.personal.students} name="Студенти" icon={studentSvg} />
       <NavItem path={routes.personal.teachers} name="Викладачі" icon={studentSvg} />
+      <NavItem path={routes.personal.themes} name="Теми" icon={themeSvg} />
     </div>
     <div className="nav-section">
       <NavItem path={routes.home} name="Профіль" icon={userSvg} />

@@ -14,6 +14,7 @@ const Groups = lazy(() => import('./containers/Groups'));
 const TeacherLoad = lazy(() => import('./containers/TeacherLoad'));
 const Students = lazy(() => import('./containers/Students'));
 const Teachers = lazy(() => import('./containers/Teachers'));
+const Themes = lazy(() => import('./containers/Themes'));
 const Profile = lazy(() => import('../../containers/Profile'));
 
 const PageByRoute = () => (
@@ -29,6 +30,7 @@ const PageByRoute = () => (
       <Route exact path={routes.personal.teacherLoad} component={TeacherLoad} />
       <Route exact path={routes.personal.students} component={Students} />
       <Route exact path={routes.personal.teachers} component={Teachers} />
+      <Route exact path={routes.personal.themes} component={Themes} />
       <Route exact path={routes.logout} component={Logout} />
       <Redirect to={routes.home} />
     </Switch>
