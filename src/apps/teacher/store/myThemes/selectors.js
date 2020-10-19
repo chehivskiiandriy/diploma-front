@@ -1,7 +1,11 @@
 import { createSelector } from 'reselect';
 
-import { idX } from '../../../../redux/helpers';
-
 const getMyThemes = state => state.myThemes.themes;
 
-export const myThemesSelector = createSelector(getMyThemes, idX);
+export const myThemesSelector = createSelector(
+  getMyThemes,
+  myThemes => myThemes && myThemes.map(el => ({
+    ...el,
+    requests: el.requests && el.requests.filter(req => req.status === 'PENDING'),
+  })),
+);

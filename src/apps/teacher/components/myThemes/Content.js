@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 
 import CreateEditMyThemeModal from './CreateEditMyThemeModal';
 import DeleteMyThemeModal from './DeleteMyThemeModal';
+import DeleteStudentFromThemeModal from './DeleteStudentFromThemeModal';
 import RequestsModal from './RequestsModal';
 import MyThemeRow from './MyThemeRow';
 import { useTeacherSelector } from '../../store/context';
@@ -12,6 +13,7 @@ const Content = () => {
   const [editData, setEditData, clearEditData] = useSetData(null);
   const [deleteId, setDeleteId, clearDeleteId] = useSetData(null);
   const [requestsData, setRequestsData, clearRequestsData] = useSetData(null);
+  const [deleteStudent, setDeleteStudent, clearDeleteStudent] = useSetData(null);
   const myThemes = useTeacherSelector(myThemesSelector);
 
   return (
@@ -37,6 +39,7 @@ const Content = () => {
               editHandler={setEditData}
               deleteHandler={setDeleteId}
               openRequests={setRequestsData}
+              openDeleteStudent={setDeleteStudent}
             />
           ))}
         </tbody>
@@ -51,6 +54,11 @@ const Content = () => {
         isOpen={!!deleteId}
         closeHandler={clearDeleteId}
         themeId={deleteId}
+      />
+      <DeleteStudentFromThemeModal
+        isOpen={!!deleteStudent}
+        closeHandler={clearDeleteStudent}
+        themeId={deleteStudent}
       />
       <RequestsModal
         isOpen={!!requestsData}
