@@ -7,6 +7,8 @@ import routes from '../../routes';
 import userSvg from '../../assets/icons/user.svg';
 import labSvg from '../../assets/icons/lab.svg';
 import exitSvg from '../../assets/icons/exit.svg';
+import themeSvg from '../../assets/icons/newspaper.svg';
+
 import { isHeadSelector } from '../../store/user/selectors';
 
 const TeacherNav = () => {
@@ -16,6 +18,7 @@ const TeacherNav = () => {
     <nav className="nav">
       <div className="nav-section">
         <NavItem path={routes.teacher.myThemes} name="Мої теми" icon={userSvg} />
+        <NavItem path={routes.teacher.themes} name="Теми" icon={themeSvg} />
         {isHead && <NavItem path={routes.head.personal} name="Персонал" icon={userSvg} />}
         <NavItem path={routes.teacher.teacherLoad} name="Навантаження" icon={labSvg} />
       </div>
