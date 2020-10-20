@@ -3,6 +3,7 @@ import laboratory from './laboratory';
 import laboratoryDirection from './laboratoryDirection';
 import degree from './degree';
 import group from './group';
+import schedule from './schedule';
 import teacherLoad from './teacherLoad';
 import student from './student';
 import teacher from './teacher';
@@ -16,6 +17,7 @@ const reducers = {
   laboratoryDirection,
   degree,
   group,
+  schedule,
   teacherLoad,
   student,
   teacher,
