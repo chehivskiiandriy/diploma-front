@@ -15,9 +15,10 @@ export default handleActions(
     [AC.UPDATE_USER]: (store, { payload }) => ({
       ...store, ...payload,
     }),
-    [AC.SET_AUTH]: (store, { payload }) => ({
+    [AC.RESET_USER]: (store) => ({
       ...store,
-      isAuthorized: payload,
+      ...initialState,
+      isLoaded: true,
     }),
     [AC.SUCCESS_RECOVER_PASSWORD]: (store) => ({
       ...store,
