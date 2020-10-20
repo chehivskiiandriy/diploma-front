@@ -78,3 +78,8 @@ export const GET_PERSONALS_LOADING = 'loading/getPersonals';
 export const CREATE_PERSONAL_LOADING = 'loading/createPersonal';
 export const UPDATE_PERSONAL_LOADING = 'loading/updatePersonal';
 export const DELETE_PERSONAL_LOADING = 'loading/deletePersonal';
+
+export const GET_SCHEDULES_LOADING = 'loading/getSchedules';
+export const CREATE_SCHEDULE_LOADING = 'loading/createSchedule';
+export const UPDATE_SCHEDULE_LOADING = 'loading/updateSchedule';
+export const DELETE_SCHEDULE_LOADING = 'loading/deleteSchedule';
