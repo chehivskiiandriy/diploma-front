@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 
 import { deleteToken, COOKIE_TOKEN_KEY } from '../../../api/token';
-import { setAuth } from '../../../store/user/actions';
+import { resetUser } from '../../../store/user/actions';
 import routes from '../../../routes';
 
 const Logout = () => {
@@ -12,7 +12,7 @@ const Logout = () => {
 
   useEffect(() => {
     deleteToken(COOKIE_TOKEN_KEY);
-    dispatch(setAuth(false));
+    dispatch(resetUser());
     history.replace(routes.login);
   }, []);
 
