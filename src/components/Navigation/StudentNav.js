@@ -14,7 +14,7 @@ const StudentNav = () => (
       <NavItem path={routes.student.themes} name="Теми" icon={newspaperSvg} />
       <NavItem path={routes.student.requests} name="Заявки" icon={newspaperSvg} />
       <NavItem path={routes.student.myTheme} name="Моя тема" icon={newspaperSvg} />
-      <NavItem path={routes.student.schedule} name="Графік виковання" icon={labSvg} />
+      <NavItem path={routes.student.schedule} name="Графік виконання" icon={labSvg} />
       <NavItem path={routes.student.teacherLoad} name="Навантаження" icon={labSvg} />
     </div>
     <div className="nav-section">

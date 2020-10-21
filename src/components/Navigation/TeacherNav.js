@@ -20,7 +20,7 @@ const TeacherNav = () => {
         <NavItem path={routes.teacher.myThemes} name="Мої теми" icon={userSvg} />
         <NavItem path={routes.teacher.themes} name="Теми" icon={themeSvg} />
         {isHead && <NavItem path={routes.head.personal} name="Персонал" icon={userSvg} />}
-        <NavItem path={routes.teacher.schedule} name="Графік виковання" icon={labSvg} />
+        <NavItem path={routes.teacher.schedule} name="Графік виконання" icon={labSvg} />
         <NavItem path={routes.teacher.teacherLoad} name="Навантаження" icon={labSvg} />
       </div>
       <div className="nav-section">
