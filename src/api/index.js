@@ -67,8 +67,11 @@ export const connect = (baseUrl, options = {}) => ({
   delete: baseFetchRequest(baseUrl, requestMethods.delete, options),
 });
 
-const api = connect('http://localhost:3000', { headers, authToken: COOKIE_TOKEN_KEY });
+const BASE_URL = 'https://diploma-system-api.herokuapp.com';
+// const BASE_URL = 'http://localhost:3000';
 
-export const adminApi = connect('http://localhost:3000', { headers, authToken: COOKIE_ADMIN_TOKEN_KEY });
+const api = connect(BASE_URL, { headers, authToken: COOKIE_TOKEN_KEY });
+
+export const adminApi = connect(BASE_URL, { headers, authToken: COOKIE_ADMIN_TOKEN_KEY });
 
 export default api;
