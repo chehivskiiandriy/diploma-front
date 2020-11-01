@@ -1,6 +1,8 @@
 import { createSelector } from 'reselect';
+import { idX } from '../../../../redux/helpers';
 
 const getMyThemes = state => state.myThemes.themes;
+const getMyLoad = state => state.myThemes.load;
 
 export const myThemesSelector = createSelector(
   getMyThemes,
@@ -9,3 +11,5 @@ export const myThemesSelector = createSelector(
     requests: el.requests && el.requests.filter(req => req.status === 'PENDING'),
   })),
 );
+
+export const myLoadSelector = createSelector(getMyLoad, idX);

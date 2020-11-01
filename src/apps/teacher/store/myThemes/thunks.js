@@ -4,6 +4,7 @@ import {
   addMyTheme,
   updateMyTheme,
   removeMyTheme,
+  setMyLoad,
 } from './actions';
 import { loadingThunk } from '../../../../store/loading/thunks';
 import {
@@ -12,7 +13,7 @@ import {
   UPDATE_MY_THEMES_LOADING,
   DELETE_MY_THEMES_LOADING,
   ACCEPT_REQUEST_LOADING,
-  DELETE_REQUEST_LOADING, DECLINE_REQUEST_LOADING, DELETE_STUDENT_FROM_THEME_LOADING
+  DECLINE_REQUEST_LOADING, DELETE_STUDENT_FROM_THEME_LOADING,
 } from '../../../../store/loading/constants';
 
 export const getMyThemesAction = () => async dispatch => {
@@ -26,6 +27,16 @@ export const getMyThemesAction = () => async dispatch => {
 };
 
 export const getMyThemes = loadingThunk(GET_MY_THEMES_LOADING)(getMyThemesAction);
+
+export const getMyTeacherLoad = () => async dispatch => {
+  try {
+    const data = await api.get('/teacher-load/own');
+
+    dispatch(setMyLoad(data));
+  } catch (e) {
+    //
+  }
+};
 
 export const createMyThemeAction = params => async dispatch => {
   try {
@@ -79,7 +90,7 @@ export const declineRequestAction = id => async dispatch => {
   try {
     await api.put(`/request/${id}`, { status: 'REJECTED' });
 
-    // dispatch(getMyThemesAction());
+    dispatch(getMyThemesAction());
   } catch (e) {
     //
   }
