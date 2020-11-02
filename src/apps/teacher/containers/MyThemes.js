@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import CreateEditMyThemeModal from '../components/myThemes/CreateEditMyThemeModal';
+import Filters from '../components/myThemes/Filters';
 import Content from '../components/myThemes/Content';
 import Button from '../../../components/Button';
 import { useTeacherSelector, useTeacherDispatch } from '../store/context';
@@ -12,11 +13,14 @@ import { academicDegreesSelector } from '../../personal/store/academicDegree/sel
 import { getLaboratoriesDirections } from '../../personal/store/laboratoryDirection/thunks';
 import { laboratoriesDirectionsSelector } from '../../personal/store/laboratoryDirection/selectors';
 import useIsOpen from '../../../hooks/useIsOpen';
+import { getStudents } from '../../personal/store/student/thunks';
+import { studentsSelector } from '../../personal/store/student/selectors';
 
 const MyThemes = () => {
   const dispatch = useTeacherDispatch();
   const academicYears = useTeacherSelector(academicYearsSelector);
   const academicDegrees = useTeacherSelector(academicDegreesSelector);
+  const students = useTeacherSelector(studentsSelector);
   const laboratoriesDirections = useTeacherSelector(laboratoriesDirectionsSelector);
   const [isOpen, openHandler, closeHandler] = useIsOpen(false);
 
@@ -31,6 +35,9 @@ const MyThemes = () => {
     if (!laboratoriesDirections.length) {
       dispatch(getLaboratoriesDirections());
     }
+    if (!students.length) {
+      dispatch(getStudents());
+    }
   }, []);
 
   return (
@@ -43,6 +50,7 @@ const MyThemes = () => {
       >
         Додати тему
       </Button>
+      <Filters />
       <Content />
       <CreateEditMyThemeModal isOpen={isOpen} closeHandler={closeHandler} />
     </div>

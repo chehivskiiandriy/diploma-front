@@ -1,6 +1,9 @@
 import { createSelector } from 'reselect';
 
 import { idX } from '../../../../redux/helpers';
+import sortSelectValues from '../../../../utils/sortSelectValues';
+
+const sortFunction = sortSelectValues('label');
 
 const getAcademicYears = state => state.academicYear.academicYears;
 
@@ -11,5 +14,5 @@ export const academicYearsOptionsSelector = createSelector(
   academicYears => academicYears.map(el => ({
     value: el.id,
     label: el.name,
-  })),
+  })).sort(sortFunction),
 );

@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Button from '../../../components/Button';
 import CreateEditGroupModal from '../components/groups/CreateEditGroupModal';
 import Content from '../components/groups/Content';
+import Filters from '../components/groups/Filters';
 import { usePersonalDispatch, usePersonalSelector } from '../store/context';
 import useIsOpen from '../../../hooks/useIsOpen';
 import { getGroups } from '../store/group/thunks';
@@ -37,6 +38,7 @@ const Groups = () => {
       >
         Додати групу
       </Button>
+      <Filters />
       <Content />
       <CreateEditGroupModal isOpen={isOpen} closeHandler={closeHandler} />
     </div>

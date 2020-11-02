@@ -203,3 +203,35 @@
   fill: currentColor;
   border-radius: inherit;
 }
+
+.filters {
+  margin-bottom: 10px;
+
+  .input-container {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.filter-select-container {
+  flex: 1;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    flex-basis: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
+  }
+}

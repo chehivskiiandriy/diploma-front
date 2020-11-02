@@ -3,12 +3,12 @@ import React, { Fragment } from 'react';
 import AddThemeRequestModal from './AddThemeRequestModal';
 import ThemeRow from './ThemeRow';
 import { useStudentSelector } from '../../store/context';
-import { themesSelector } from '../../store/theme/selectors';
+import { filteredThemesSelector } from '../../store/theme/selectors';
 import useSetData from '../../../../hooks/useSetData';
 
 const Content = () => {
   const [themeId, setThemeId, clearThemeId] = useSetData(null);
-  const themes = useStudentSelector(themesSelector);
+  const themes = useStudentSelector(filteredThemesSelector);
 
   return (
     <Fragment>
