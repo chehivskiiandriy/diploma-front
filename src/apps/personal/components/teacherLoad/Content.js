@@ -4,13 +4,13 @@ import CreateEditTeacherLoadModal from './CreateEditTeacherLoadModal';
 import DeleteTeacherLoadModal from './DeleteTeacherLoadModal';
 import TeacherLoadRow from './TeacherLoadRow';
 import { usePersonalSelector } from '../../store/context';
-import { teachersLoadSelector } from '../../store/teacherLoad/selectors';
+import { filteredTeacherLoadSelector } from '../../store/teacherLoad/selectors';
 import useSetData from '../../../../hooks/useSetData';
 
 const Content = () => {
   const [editData, setEditData, clearEditData] = useSetData(null);
   const [deleteId, setDeleteId, clearDeleteId] = useSetData(null);
-  const teachersLoad = usePersonalSelector(teachersLoadSelector);
+  const teachersLoad = usePersonalSelector(filteredTeacherLoadSelector);
 
   return (
     <Fragment>

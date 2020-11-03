@@ -6,7 +6,7 @@ import DeleteStudentFromThemeModal from './DeleteStudentFromThemeModal';
 import RequestsModal from './RequestsModal';
 import MyThemeRow from './MyThemeRow';
 import { useTeacherSelector } from '../../store/context';
-import { myThemesSelector } from '../../store/myThemes/selectors';
+import { filteredMyThemesSelector } from '../../store/myThemes/selectors';
 import useSetData from '../../../../hooks/useSetData';
 
 const Content = () => {
@@ -14,7 +14,7 @@ const Content = () => {
   const [deleteId, setDeleteId, clearDeleteId] = useSetData(null);
   const [requestsData, setRequestsData, clearRequestsData] = useSetData(null);
   const [deleteStudent, setDeleteStudent, clearDeleteStudent] = useSetData(null);
-  const myThemes = useTeacherSelector(myThemesSelector);
+  const myThemes = useTeacherSelector(filteredMyThemesSelector);
 
   return (
     <Fragment>

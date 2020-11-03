@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import CreateEditTeacherModal from '../components/teachers/CreateEditTeacherModal';
+import Filters from '../components/teachers/Filters';
 import Content from '../components/teachers/Content';
 import Button from '../../../components/Button';
 import { usePersonalDispatch, usePersonalSelector } from '../store/context';
@@ -31,6 +32,7 @@ const Teachers = () => {
       >
         Додати викладача
       </Button>
+      <Filters />
       <Content />
       <CreateEditTeacherModal isOpen={isOpen} closeHandler={closeHandler} />
     </div>

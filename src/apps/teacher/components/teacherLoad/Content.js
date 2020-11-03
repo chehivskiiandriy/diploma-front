@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 
 import TeacherLoadRow from './TeacherLoadRow';
 import { useTeacherSelector } from '../../store/context';
-import { teachersLoadSelector } from '../../store/teacherLoad/selectors';
+import { filteredTeacherLoadSelector } from '../../store/teacherLoad/selectors';
 
 const Content = () => {
-  const teachersLoad = useTeacherSelector(teachersLoadSelector);
+  const teachersLoad = useTeacherSelector(filteredTeacherLoadSelector);
 
   return (
     <Fragment>

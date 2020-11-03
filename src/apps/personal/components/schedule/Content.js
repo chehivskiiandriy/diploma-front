@@ -4,13 +4,13 @@ import CreateEditScheduleModal from './CreateEditScheduleModal';
 import DeleteScheduleModal from './DeleteScheduleModal';
 import ScheduleRow from './ScheduleRow';
 import { usePersonalSelector } from '../../store/context';
-import { schedulesSelector } from '../../store/schedule/selectors';
+import { filteredSchedulesSelector } from '../../store/schedule/selectors';
 import useSetData from '../../../../hooks/useSetData';
 
 const Content = () => {
   const [editData, setEditData, clearEditData] = useSetData(null);
   const [deleteId, setDeleteId, clearDeleteId] = useSetData(null);
-  const schedules = usePersonalSelector(schedulesSelector);
+  const schedules = usePersonalSelector(filteredSchedulesSelector);
 
   return (
     <Fragment>

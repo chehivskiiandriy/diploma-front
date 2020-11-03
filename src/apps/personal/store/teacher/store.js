@@ -4,6 +4,10 @@ import * as AC from './actions';
 
 const initialState = {
   teachers: [],
+  filters: {
+    degree: null,
+    searchValue: '',
+  },
 };
 
 export default handleActions(
@@ -23,6 +27,13 @@ export default handleActions(
     [AC.REMOVE_TEACHER]: (store, { payload }) => ({
       ...store,
       teachers: store.teachers.filter(el => (el.id !== payload)),
+    }),
+    [AC.SET_TEACHER_FILTERS]: (store, { payload }) => ({
+      ...store,
+      filters: {
+        ...store.filters,
+        ...payload,
+      },
     }),
   },
   initialState,

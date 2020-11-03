@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import CreateEditTeacherModal from '../components/teacherLoad/CreateEditTeacherLoadModal';
 import Content from '../components/teacherLoad/Content';
+import Filters from '../components/teacherLoad/Filters';
 import Button from '../../../components/Button';
 import useIsOpen from '../../../hooks/useIsOpen';
 import { usePersonalDispatch, usePersonalSelector } from '../store/context';
@@ -43,6 +44,7 @@ const TeacherLoad = () => {
       >
         Додати навантаження
       </Button>
+      <Filters />
       <Content />
       <CreateEditTeacherModal isOpen={isOpen} closeHandler={closeHandler} />
     </div>

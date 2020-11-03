@@ -4,6 +4,11 @@ import * as AC from './actions';
 
 const initialState = {
   groups: [],
+  filters: {
+    academicYear: null,
+    academicDegree: null,
+    name: '',
+  },
 };
 
 export default handleActions(
@@ -23,6 +28,13 @@ export default handleActions(
     [AC.REMOVE_GROUP]: (store, { payload }) => ({
       ...store,
       groups: store.groups.filter(el => (el.id !== payload)),
+    }),
+    [AC.SET_GROUP_FILTERS]: (store, { payload }) => ({
+      ...store,
+      filters: {
+        ...store.filters,
+        ...payload,
+      },
     }),
   },
   initialState,

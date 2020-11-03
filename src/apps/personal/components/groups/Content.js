@@ -4,13 +4,13 @@ import CreateEditGroupModal from './CreateEditGroupModal';
 import DeleteGroupModal from './DeleteGroupModal';
 import GroupRow from './GroupRow';
 import { usePersonalSelector } from '../../store/context';
-import { groupsSelector } from '../../store/group/selectors';
+import { filteredGroupsSelector } from '../../store/group/selectors';
 import useSetData from '../../../../hooks/useSetData';
 
 const Content = () => {
   const [editData, setEditData, clearEditData] = useSetData(null);
   const [deleteId, setDeleteId, clearDeleteId] = useSetData(null);
-  const groups = usePersonalSelector(groupsSelector);
+  const groups = usePersonalSelector(filteredGroupsSelector);
 
   return (
     <Fragment>

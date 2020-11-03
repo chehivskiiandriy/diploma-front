@@ -4,6 +4,12 @@ import * as AC from './actions';
 
 const initialState = {
   themes: [],
+  filters: {
+    academicYear: null,
+    academicDegree: null,
+    student: null,
+    name: '',
+  },
 };
 
 export default handleActions(
@@ -23,6 +29,13 @@ export default handleActions(
     [AC.REMOVE_MY_THEME]: (store, { payload }) => ({
       ...store,
       themes: store.themes.filter(el => (el.id !== payload)),
+    }),
+    [AC.SET_MY_THEMES_FILTERS]: (store, { payload }) => ({
+      ...store,
+      filters: {
+        ...store.filters,
+        ...payload,
+      },
     }),
   },
   initialState,

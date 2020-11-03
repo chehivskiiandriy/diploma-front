@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import Button from '../../../components/Button';
 import CreateEditScheduleModal from '../components/schedule/CreateEditScheduleModal';
+import Filters from '../components/schedule/Filters';
 import Content from '../components/schedule/Content';
 import { usePersonalDispatch, usePersonalSelector } from '../store/context';
 import useIsOpen from '../../../hooks/useIsOpen';
@@ -37,6 +38,7 @@ const Schedule = () => {
       >
         Додати графік виконання
       </Button>
+      <Filters />
       <Content />
       <CreateEditScheduleModal isOpen={isOpen} closeHandler={closeHandler} />
     </div>
