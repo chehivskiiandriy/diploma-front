@@ -1,7 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../../../components/Button';
+import toLocaleTime from '../../../../utils/toLocaleTime';
 
 const TeacherRow = ({ teacher, editHandler, deleteHandler }) => {
   const openEditModal = useCallback(() => {
@@ -11,6 +12,9 @@ const TeacherRow = ({ teacher, editHandler, deleteHandler }) => {
   const openDeleteModal = useCallback(() => {
     deleteHandler(teacher.id);
   }, [teacher]);
+
+  const createdAt = useMemo(() => toLocaleTime(teacher.createdAt), [teacher.createdAt]);
+  const updatedAt = useMemo(() => toLocaleTime(teacher.updatedAt), [teacher.updatedAt]);
 
   return (
     <tr className="tr">
@@ -31,6 +35,12 @@ const TeacherRow = ({ teacher, editHandler, deleteHandler }) => {
       </td>
       <td className="td">
         {teacher.isActive ? 'Так' : 'Ні'}
+      </td>
+      <td className="td">
+        {createdAt}
+      </td>
+      <td className="td">
+        {updatedAt}
       </td>
       <td className="td">
         <div className="actions">
@@ -65,6 +75,8 @@ TeacherRow.propTypes = {
       name: PropTypes.string.isRequired,
     }).isRequired,
     isActive: PropTypes.bool.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    updatedAt: PropTypes.string.isRequired,
   }).isRequired,
   editHandler: PropTypes.func.isRequired,
   deleteHandler: PropTypes.func.isRequired,

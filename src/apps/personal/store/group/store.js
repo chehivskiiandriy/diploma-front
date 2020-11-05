@@ -7,6 +7,7 @@ const initialState = {
   filters: {
     academicYear: null,
     academicDegree: null,
+    specialty: null,
     name: '',
   },
 };

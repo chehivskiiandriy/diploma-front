@@ -1,7 +1,7 @@
 import {
   updateUser, successRecoverPassword, setVerifiedUser,
 } from './actions';
-import { LOGIN_LOADING, SIGNUP_LOADING } from '../loading/constants';
+import { CHANGE_PASSWORD_LOADING, LOGIN_LOADING, SIGNUP_LOADING } from '../loading/constants';
 import { loadingThunk } from '../loading/thunks';
 import { setToken, getToken, COOKIE_TOKEN_KEY } from '../../api/token';
 import api from '../../api';
@@ -60,6 +60,16 @@ export const recoverPassword = params => async dispatch => {
     console.log(e);
   }
 };
+
+export const changePasswordAction = params => async dispatch => {
+  try {
+    await api.post('auth/change-password', params);
+  } catch (e) {
+    //
+  }
+};
+
+export const changePassword = loadingThunk(CHANGE_PASSWORD_LOADING)(changePasswordAction);
 
 export const verifyUserAction = params => async dispatch => {
   try {

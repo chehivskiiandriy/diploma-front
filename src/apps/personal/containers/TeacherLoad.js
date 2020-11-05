@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import CreateEditTeacherModal from '../components/teacherLoad/CreateEditTeacherLoadModal';
+import DownloadTeacherLoadModal from '../components/teacherLoad/DownloadTeacherLoadModal';
 import Content from '../components/teacherLoad/Content';
 import Filters from '../components/teacherLoad/Filters';
 import Button from '../../../components/Button';
@@ -20,6 +21,7 @@ const TeacherLoad = () => {
   const academicYears = usePersonalSelector(academicYearsSelector);
   const academicDegrees = usePersonalSelector(academicDegreesSelector);
   const [isOpen, openHandler, closeHandler] = useIsOpen(false);
+  const [isOpenDownload, openDownloadHandler, closeDownloadHandler] = useIsOpen(false);
 
   useEffect(() => {
     dispatch(getTeachersLoad());
@@ -44,9 +46,17 @@ const TeacherLoad = () => {
       >
         Додати навантаження
       </Button>
+      <Button
+        label="Завантажити навантаження"
+        className="indent-sm-bottom"
+        onClick={openDownloadHandler}
+      >
+        Завантажити навантаження
+      </Button>
       <Filters />
       <Content />
       <CreateEditTeacherModal isOpen={isOpen} closeHandler={closeHandler} />
+      <DownloadTeacherLoadModal isOpen={isOpenDownload} closeHandler={closeDownloadHandler} />
     </div>
   );
 };

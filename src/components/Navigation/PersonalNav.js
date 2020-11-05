@@ -17,6 +17,7 @@ const PersonalNav = () => (
       <NavItem path={routes.personal.degrees} name="Наукові ступені" icon={studentSvg} />
       <NavItem path={routes.personal.academicDegrees} name="Академічні рівні" icon={studentSvg} />
       <NavItem path={routes.personal.academicYears} name="Академічні роки" icon={studentSvg} />
+      <NavItem path={routes.personal.specialty} name="Спеціальності" icon={labSvg} />
       <NavItem path={routes.personal.groups} name="Групи" icon={labSvg} />
       <NavItem path={routes.personal.schedule} name="Графік виконання" icon={labSvg} />
       <NavItem path={routes.personal.teacherLoad} name="Навантаження" icon={labSvg} />

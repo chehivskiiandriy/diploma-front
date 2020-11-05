@@ -12,6 +12,7 @@ const getAuthorized = state => state.user.isAuthorized;
 const getPasswordRecovered = state => state.user.passwordRecovered;
 const getVerifiedUser = state => state.user.verifiedUser;
 
+export const userSelector = createSelector(getUser, idX);
 export const userIdSelector = createSelector(getUserId, idX);
 export const userEmailSelector = createSelector(getUserEmail, idX);
 export const isUserLoadedSelector = createSelector(getUserLoaded, idX);

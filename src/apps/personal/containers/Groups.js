@@ -9,13 +9,16 @@ import useIsOpen from '../../../hooks/useIsOpen';
 import { getGroups } from '../store/group/thunks';
 import { getAcademicYears } from '../store/academicYear/thunks';
 import { getAcademicDegrees } from '../store/academicDegree/thunks';
+import { getSpecialities } from '../store/specialty/thunks';
 import { academicYearsSelector } from '../store/academicYear/selectors';
 import { academicDegreesSelector } from '../store/academicDegree/selectors';
+import { specialitiesSelector } from '../store/specialty/selectors';
 
 const Groups = () => {
   const dispatch = usePersonalDispatch();
   const academicYears = usePersonalSelector(academicYearsSelector);
   const academicDegrees = usePersonalSelector(academicDegreesSelector);
+  const specialities = usePersonalSelector(specialitiesSelector);
   const [isOpen, openHandler, closeHandler] = useIsOpen(false);
 
   useEffect(() => {
@@ -25,6 +28,9 @@ const Groups = () => {
     }
     if (!academicDegrees.length) {
       dispatch(getAcademicDegrees());
+    }
+    if (!specialities.length) {
+      dispatch(getSpecialities());
     }
   }, []);
 

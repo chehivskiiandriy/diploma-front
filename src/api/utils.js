@@ -29,6 +29,9 @@ export const toCamelCase = str => str
   .replace(/^(.)/, lowerCase);
 
 export const toCamelCaseRecursive = obj => {
+  if (obj instanceof Blob) {
+    return obj;
+  }
   if (isObject(obj)) {
     const n = {};
     Object.keys(obj)

@@ -11,7 +11,10 @@ import {
   CREATE_TEACHER_LOAD_LOADING,
   UPDATE_TEACHER_LOAD_LOADING,
   DELETE_TEACHER_LOAD_LOADING,
+  DOWNLOAD_TEACHER_LOAD_LOADING,
 } from '../../../../store/loading/constants';
+import { toBlob } from '../../../../api/helpers';
+import download from '../../../../utils/download';
 
 export const getTeachersLoadAction = () => async dispatch => {
   try {
@@ -60,3 +63,16 @@ export const deleteTeacherLoadAction = id => async dispatch => {
 };
 
 export const deleteTeacherLoad = loadingThunk(DELETE_TEACHER_LOAD_LOADING)(deleteTeacherLoadAction);
+
+export const downloadTeacherLoadAction = (academicYear, params) => async () => {
+  try {
+    const blob = await api.post(`/teacher-load/download/${academicYear.value}`, params, {}, toBlob);
+    download(`teacher_load_${academicYear.label}.docx`, blob);
+  } catch (e) {
+    //
+  }
+};
+
+export const downloadTeacherLoad = (
+  loadingThunk(DOWNLOAD_TEACHER_LOAD_LOADING)(downloadTeacherLoadAction)
+);
