@@ -16,10 +16,12 @@ export const filteredGroupsSelector = createSelector(
   (groups, groupFilters) => {
     const academicDegree = groupFilters.academicDegree && groupFilters.academicDegree.value;
     const academicYear = groupFilters.academicYear && groupFilters.academicYear.value;
+    const specialty = groupFilters.specialty && groupFilters.specialty.value;
     const { name } = groupFilters;
     return groups.filter(el => (
       (!academicDegree || el.academicDegreeId === academicDegree)
       && (!academicYear || el.academicYearId === academicYear)
+      && (!specialty || el.specialtyId === specialty)
       && (!name || el.name.toLowerCase().includes(name.toLowerCase()))
     ));
   },

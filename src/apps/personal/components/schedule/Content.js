@@ -23,6 +23,8 @@ const Content = () => {
             <th className="th">Дата закінчення</th>
             <th className="th">Академічний рік</th>
             <th className="th">Академічний рівень</th>
+            <th className="th">Дата створення</th>
+            <th className="th">Дата редагування</th>
             <th className="th">Дії</th>
           </tr>
         </thead>

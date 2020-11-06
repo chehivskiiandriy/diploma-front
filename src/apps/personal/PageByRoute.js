@@ -12,6 +12,7 @@ const AcademicDegrees = lazy(() => import('./containers/AcademicDegrees'));
 const AcademicYears = lazy(() => import('./containers/AcademicYears'));
 const Groups = lazy(() => import('./containers/Groups'));
 const Schedule = lazy(() => import('./containers/Schedule'));
+const Specialty = lazy(() => import('./containers/Specialty'));
 const TeacherLoad = lazy(() => import('./containers/TeacherLoad'));
 const Students = lazy(() => import('./containers/Students'));
 const Teachers = lazy(() => import('./containers/Teachers'));
@@ -27,6 +28,7 @@ const PageByRoute = () => (
       <Route exact path={routes.personal.degrees} component={Degrees} />
       <Route exact path={routes.personal.academicDegrees} component={AcademicDegrees} />
       <Route exact path={routes.personal.academicYears} component={AcademicYears} />
+      <Route exact path={routes.personal.specialty} component={Specialty} />
       <Route exact path={routes.personal.groups} component={Groups} />
       <Route exact path={routes.personal.schedule} component={Schedule} />
       <Route exact path={routes.personal.teacherLoad} component={TeacherLoad} />

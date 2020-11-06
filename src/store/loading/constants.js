@@ -36,6 +36,7 @@ export const DELETE_GROUP_LOADING = 'loading/deleteGroup';
 export const GET_THEMES_LOADING = 'loading/getThemes';
 export const APPROVE_THEME_LOADING = 'loading/approveTheme';
 export const DECLINE_THEME_LOADING = 'loading/declineTheme';
+export const DOWNLOAD_THEMES_LOADING = 'loading/downloadThemes';
 
 export const GET_STUDENTS_LOADING = 'loading/getStudents';
 export const CREATE_STUDENT_LOADING = 'loading/createStudent';
@@ -61,6 +62,7 @@ export const GET_TEACHERS_LOAD_LOADING = 'loading/getTeachersLoad';
 export const CREATE_TEACHER_LOAD_LOADING = 'loading/createTeacherLoad';
 export const UPDATE_TEACHER_LOAD_LOADING = 'loading/updateTeacherLoad';
 export const DELETE_TEACHER_LOAD_LOADING = 'loading/deleteTeacherLoad';
+export const DOWNLOAD_TEACHER_LOAD_LOADING = 'loading/downloadTeacherLoad';
 
 export const GET_MY_THEMES_LOADING = 'loading/getMyThemes';
 export const CREATE_MY_THEMES_LOADING = 'loading/createMyTheme';
@@ -83,3 +85,10 @@ export const GET_SCHEDULES_LOADING = 'loading/getSchedules';
 export const CREATE_SCHEDULE_LOADING = 'loading/createSchedule';
 export const UPDATE_SCHEDULE_LOADING = 'loading/updateSchedule';
 export const DELETE_SCHEDULE_LOADING = 'loading/deleteSchedule';
+
+export const GET_SPECIALITIES_LOADING = 'loading/getSpecialities';
+export const CREATE_SPECIALTY_LOADING = 'loading/createSpecialty';
+export const UPDATE_SPECIALTY_LOADING = 'loading/updateSpecialty';
+export const DELETE_SPECIALTY_LOADING = 'loading/deleteSpecialty';
+
+export const CHANGE_PASSWORD_LOADING = 'loading/changePassword';

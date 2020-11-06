@@ -23,6 +23,8 @@ const Content = () => {
             <th className="th">Електронна адреса</th>
             <th className="th">Наукова ступінь</th>
             <th className="th">Активний</th>
+            <th className="th">Дата створення</th>
+            <th className="th">Дата редагування</th>
             <th className="th">Дії</th>
           </tr>
         </thead>
