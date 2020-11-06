@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import classNames from 'classnames';
 
 import CreateEditMyThemeModal from '../components/myThemes/CreateEditMyThemeModal';
+import Filters from '../components/myThemes/Filters';
 import Content from '../components/myThemes/Content';
 import Button from '../../../components/Button';
 import { useTeacherSelector, useTeacherDispatch } from '../store/context';
@@ -14,11 +15,14 @@ import { getLaboratoriesDirections } from '../../personal/store/laboratoryDirect
 import { laboratoriesDirectionsSelector } from '../../personal/store/laboratoryDirection/selectors';
 import useIsOpen from '../../../hooks/useIsOpen';
 import { myLoadSelector, myThemesSelector } from '../store/myThemes/selectors';
+import { getStudents } from '../../personal/store/student/thunks';
+import { studentsSelector } from '../../personal/store/student/selectors';
 
 const MyThemes = () => {
   const dispatch = useTeacherDispatch();
   const academicYears = useTeacherSelector(academicYearsSelector);
   const academicDegrees = useTeacherSelector(academicDegreesSelector);
+  const students = useTeacherSelector(studentsSelector);
   const laboratoriesDirections = useTeacherSelector(laboratoriesDirectionsSelector);
   const myThemes = useTeacherSelector(myThemesSelector);
   const teacherLoad = useTeacherSelector(myLoadSelector);
@@ -35,6 +39,9 @@ const MyThemes = () => {
     }
     if (!laboratoriesDirections.length) {
       dispatch(getLaboratoriesDirections());
+    }
+    if (!students.length) {
+      dispatch(getStudents());
     }
   }, []);
 
@@ -53,6 +60,7 @@ const MyThemes = () => {
         >
           Додати тему
         </Button>
+        <Filters />
       </div>
       <table className="table loadThemes">
         <thead>

@@ -5,14 +5,14 @@ import CreateEditMyThemeModal from './ApproveThemeModal';
 import DeleteMyThemeModal from './DeclineThemeModal';
 import ThemeRow from './ThemeRow';
 import { useTeacherSelector } from '../../store/context';
-import { themesSelector } from '../../store/theme/selectors';
+import { filteredThemesSelector } from '../../store/theme/selectors';
 import useSetData from '../../../../hooks/useSetData';
 import { isHeadSelector } from '../../../../store/user/selectors';
 
 const Content = () => {
   const [approveId, setApproveId, clearApproveId] = useSetData(null);
   const [declineId, setDeclineId, clearDeclineId] = useSetData(null);
-  const themes = useTeacherSelector(themesSelector);
+  const themes = useTeacherSelector(filteredThemesSelector);
   const isHead = useSelector(isHeadSelector);
 
   return (

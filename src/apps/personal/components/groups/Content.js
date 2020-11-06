@@ -4,13 +4,13 @@ import CreateEditGroupModal from './CreateEditGroupModal';
 import DeleteGroupModal from './DeleteGroupModal';
 import GroupRow from './GroupRow';
 import { usePersonalSelector } from '../../store/context';
-import { groupsSelector } from '../../store/group/selectors';
+import { filteredGroupsSelector } from '../../store/group/selectors';
 import useSetData from '../../../../hooks/useSetData';
 
 const Content = () => {
   const [editData, setEditData, clearEditData] = useSetData(null);
   const [deleteId, setDeleteId, clearDeleteId] = useSetData(null);
-  const groups = usePersonalSelector(groupsSelector);
+  const groups = usePersonalSelector(filteredGroupsSelector);
 
   return (
     <Fragment>
@@ -21,6 +21,9 @@ const Content = () => {
             <th className="th">Кількість студентів</th>
             <th className="th">Академічний рік</th>
             <th className="th">Академічний рівень</th>
+            <th className="th">Спеціальність</th>
+            <th className="th">Дата створення</th>
+            <th className="th">Дата редагування</th>
             <th className="th">Дії</th>
           </tr>
         </thead>

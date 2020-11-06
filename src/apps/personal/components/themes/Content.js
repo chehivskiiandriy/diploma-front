@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 
 import ThemeRow from './ThemeRow';
 import { usePersonalSelector } from '../../store/context';
-import { themesSelector } from '../../store/theme/selectors';
+import { filteredThemesSelector } from '../../store/theme/selectors';
 
 const Content = () => {
-  const themes = usePersonalSelector(themesSelector);
+  const themes = usePersonalSelector(filteredThemesSelector);
 
   return (
     <Fragment>
@@ -17,6 +17,8 @@ const Content = () => {
             <th className="th">Студент</th>
             <th className="th">Академічний рік</th>
             <th className="th">Академічний рівень</th>
+            <th className="th">Дата створення</th>
+            <th className="th">Дата редагування</th>
             <th className="th">Затверджено</th>
           </tr>
         </thead>

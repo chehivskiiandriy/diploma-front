@@ -12,6 +12,7 @@ import useFormErrors from '../../../../hooks/useFormErrors';
 import { isTaskLoading } from '../../../../store/loading/selectors';
 import { academicYearsOptionsSelector } from '../../store/academicYear/selectors';
 import { academicDegreesOptionsSelector } from '../../store/academicDegree/selectors';
+import { specialitiesOptionsSelector } from '../../store/specialty/selectors';
 import { CREATE_GROUP_LOADING, UPDATE_GROUP_LOADING } from '../../../../store/loading/constants';
 
 const CreateEditGroupModal = ({
@@ -22,6 +23,7 @@ const CreateEditGroupModal = ({
   const editLoading = usePersonalSelector(state => isTaskLoading(state, UPDATE_GROUP_LOADING));
   const academicYearsOptions = usePersonalSelector(academicYearsOptionsSelector);
   const academicDegreesOptions = usePersonalSelector(academicDegreesOptionsSelector);
+  const specialitiesOptions = usePersonalSelector(specialitiesOptionsSelector);
   const {
     handleSubmit, register, errors, reset, control,
   } = useForm({ mode: 'onBlur' });
@@ -42,6 +44,10 @@ const CreateEditGroupModal = ({
           value: defaultValues.academicDegree.id,
           label: defaultValues.academicDegree.name,
         },
+        specialty: defaultValues.specialty && {
+          value: defaultValues.specialty.id,
+          label: `${defaultValues.specialty.number} - ${defaultValues.specialty.name}`,
+        },
       };
 
       reset(values);
@@ -49,13 +55,14 @@ const CreateEditGroupModal = ({
   }, [defaultValues]);
 
   const onSubmit = async ({
-    name, amountStudents, academicYear, academicDegree,
+    name, amountStudents, academicYear, academicDegree, specialty,
   }) => {
     const params = {
       name,
       amountStudents: +amountStudents,
       academicYearId: academicYear.value,
       academicDegreeId: academicDegree.value,
+      specialtyId: specialty.value,
     };
     if (isEdit) {
       await dispatch(editGroup(defaultValues.id, params));
@@ -125,6 +132,15 @@ const CreateEditGroupModal = ({
             errors={errors}
             label="Академічний рівень"
             placeholder="Виберіть академічний рівень"
+          />
+          <Select
+            name="specialty"
+            options={specialitiesOptions}
+            control={control}
+            rules={{ required: 'Будь ласка, виберіть спеціальність' }}
+            errors={errors}
+            label="Спеціальність"
+            placeholder="Виберіть спеціальність"
           />
         </div>
         <div className="modal-footer">

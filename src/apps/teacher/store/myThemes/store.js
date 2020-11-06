@@ -4,6 +4,12 @@ import * as AC from './actions';
 
 const initialState = {
   themes: [],
+  filters: {
+    academicYear: null,
+    academicDegree: null,
+    student: null,
+    name: '',
+  },
 };
 
 export default handleActions(
@@ -27,6 +33,13 @@ export default handleActions(
     [AC.SET_MY_LOAD]: (store, { payload }) => ({
       ...store,
       load: payload,
+    }),
+    [AC.SET_MY_THEMES_FILTERS]: (store, { payload }) => ({
+      ...store,
+      filters: {
+        ...store.filters,
+        ...payload,
+      },
     }),
   },
   initialState,

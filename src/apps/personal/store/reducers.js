@@ -10,6 +10,7 @@ import teacher from './teacher';
 import academicDegree from './academicDegree';
 import academicYear from './academicYear';
 import theme from './theme';
+import specialty from './specialty';
 
 const reducers = {
   loading,
@@ -24,6 +25,7 @@ const reducers = {
   academicDegree,
   academicYear,
   theme,
+  specialty,
 };
 
 export default reducers;

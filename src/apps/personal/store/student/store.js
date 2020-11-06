@@ -4,11 +4,9 @@ import * as AC from './actions';
 
 const initialState = {
   students: [],
-  pagination: {
-    currentPage: 1,
-    perPage: 10,
-    total: 0,
-    lastPage: 0,
+  filters: {
+    group: null,
+    searchValue: '',
   },
 };
 
@@ -16,8 +14,7 @@ export default handleActions(
   {
     [AC.SET_STUDENTS]: (store, { payload }) => ({
       ...store,
-      students: payload.data,
-      pagination: payload.meta,
+      students: payload,
     }),
     [AC.ADD_STUDENT]: (store, { payload }) => ({
       ...store,
@@ -30,6 +27,13 @@ export default handleActions(
     [AC.REMOVE_STUDENT]: (store, { payload }) => ({
       ...store,
       students: store.students.filter(el => (el.id !== payload)),
+    }),
+    [AC.SET_STUDENT_FILTERS]: (store, { payload }) => ({
+      ...store,
+      filters: {
+        ...store.filters,
+        ...payload,
+      },
     }),
   },
   initialState,

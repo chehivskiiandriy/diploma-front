@@ -25,12 +25,13 @@ const Input = forwardRef(({
 Input.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  errors: PropTypes.shape().isRequired,
+  errors: PropTypes.shape(),
   label: PropTypes.string,
 };
 
 Input.defaultProps = {
   label: '',
+  errors: {},
 };
 
 export default Input;

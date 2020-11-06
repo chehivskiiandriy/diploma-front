@@ -204,3 +204,66 @@
   fill: currentColor;
   border-radius: inherit;
 }
+
+.filters {
+  margin-bottom: 10px;
+
+  .input-container {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.filter-select-container {
+  flex: 1;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    flex-basis: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
+  }
+}
+
+.profile {
+  background: #fff;
+  border-radius: 3px;
+  padding: 2rem 2rem;
+  margin: 2rem auto;
+  box-shadow: 0 0 5px rgba(0, 0 ,0, .15);
+
+  @media (max-width: 800px) {
+    text-align: center;
+
+    &.align-left {
+      text-align: left;
+    }
+  }
+
+  .email {
+    display: block;
+    color: #ff8c00;
+    font-size: 14px;
+    padding-top: 5px;
+  }
+
+  .name {
+    font-size: 24px;
+
+    @media (max-width: 800px) {
+      font-size: 18px;
+    }
+  }
+}

@@ -47,6 +47,7 @@ const routesMap = {
     degrees: 'degrees',
     academicYears: 'academic-years',
     academicDegrees: 'academic-degrees',
+    specialty: 'specialty',
     groups: 'groups',
     teacherLoad: 'teacher-load',
     students: 'students',
