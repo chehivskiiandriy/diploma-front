@@ -3,6 +3,11 @@ export const LOGIN_LOADING = 'loading/login';
 export const SIGNUP_LOADING = 'loading/signup';
 export const GET_THEME_INFO_LOADING = 'loading/themeInfo';
 
+export const GET_FILES_LOADING = 'loading/getFiles';
+export const CREATE_FILE_LOADING = 'loading/createFile';
+export const DELETE_FILE_LOADING = 'loading/deleteFile';
+export const DOWNLOAD_FILE_LOADING = 'loading/downloadFile';
+
 export const GET_DEPARTMENTS_LOADING = 'loading/getDepartments';
 export const CREATE_DEPARTMENT_LOADING = 'loading/createDepartment';
 export const UPDATE_DEPARTMENT_LOADING = 'loading/updateDepartment';
