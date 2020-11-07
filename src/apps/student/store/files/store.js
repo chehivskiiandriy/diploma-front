@@ -23,7 +23,7 @@ export default handleActions(
     }),
     [AC.REMOVE_FILE]: (store, { payload }) => ({
       ...store,
-      files: store.requests.filter(el => (el.id !== payload)),
+      myFiles: store.myFiles.filter(el => (el.id !== payload)),
     }),
   },
   initialState,

@@ -39,16 +39,13 @@ export const getMyFilesAction = () => async dispatch => {
 
 export const getMyFiles = loadingThunk(GET_FILES_LOADING)(getMyFilesAction);
 
-export const uploadFileAction = (formData) => async () => {
+export const uploadFileAction = (formData) => async dispatch => {
   try {
     await api.post('/export/student/upload', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data; boundary=',
-        'Accept-Encoding': 'gzip, deflate, br',
-        // accept: 'multipart/form-data',
-      },
+      withCommonHeaders: false,
       dataModifier: pureModifier,
     });
+    dispatch(getMyFiles());
   } catch (e) {
     //
   }
@@ -56,21 +53,9 @@ export const uploadFileAction = (formData) => async () => {
 
 export const uploadFile = loadingThunk(GET_FILES_LOADING)(uploadFileAction);
 
-// export const createRequestAction = themeId => async dispatch => {
-//   try {
-//     const data = await api.post('/request', { themeId });
-
-//     dispatch(addRequest(data));
-//   } catch (e) {
-//     //
-//   }
-// };
-
-// export const createRequest = loadingThunk(CREATE_REQUEST_LOADING)(createRequestAction);
-
 export const deleteFileAction = id => async dispatch => {
   try {
-    await api.delete(`/file/${id}`);
+    await api.delete(`/export/file/${id}`);
 
     dispatch(removeFile(id));
   } catch (e) {

@@ -37,8 +37,8 @@ export const requestData = (data, method, dataModifier) => {
   return modifier(data);
 };
 
-export const requestHeaders = (common, options) => ({
-  ...commonHeaders,
+export const requestHeaders = (common, options, withCommonHeaders = true) => ({
+  ...(withCommonHeaders && commonHeaders),
   ...(common && common.headers),
   ...(options && options.headers),
 });
