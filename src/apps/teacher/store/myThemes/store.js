@@ -30,6 +30,10 @@ export default handleActions(
       ...store,
       themes: store.themes.filter(el => (el.id !== payload)),
     }),
+    [AC.SET_MY_LOAD]: (store, { payload }) => ({
+      ...store,
+      load: payload,
+    }),
     [AC.SET_MY_THEMES_FILTERS]: (store, { payload }) => ({
       ...store,
       filters: {

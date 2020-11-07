@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import { idX } from '../../../../redux/helpers';
 
 const getMyThemes = state => state.myThemes.themes;
+const getMyLoad = state => state.myThemes.load;
 const getMyThemesFilters = state => state.myThemes.filters;
 
 export const myThemesFiltersSelector = createSelector(getMyThemesFilters, idX);
@@ -14,6 +15,7 @@ export const myThemesSelector = createSelector(
   })),
 );
 
+export const myLoadSelector = createSelector(getMyLoad, idX);
 export const filteredMyThemesSelector = createSelector(
   [myThemesSelector, myThemesFiltersSelector],
   (themes, themesFilters) => {
