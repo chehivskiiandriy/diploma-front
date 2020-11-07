@@ -44,13 +44,7 @@ const baseFetchRequest = (baseUrl, method, common = {}) => (
     setAuthHeader(getTokenSync(common.authToken));
 
     const fullUrl = getFullUrl(baseUrl, url, options);
-    const fetchOptions = getFetchOptions(fullUrl, method, {
-      headers: {
-        ...common.headers,
-        ...options.headers,
-      },
-      authToken: common.authToken,
-    }, data, options);
+    const fetchOptions = getFetchOptions(fullUrl, method, common, data, options);
 
     return new Promise((resolve, reject) => {
       fetch(fullUrl, fetchOptions)

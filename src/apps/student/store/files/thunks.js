@@ -12,7 +12,7 @@ import {
   DELETE_FILE_LOADING,
   DOWNLOAD_FILE_LOADING,
 } from '../../../../store/loading/constants';
-import { toBlob } from '../../../../api/helpers';
+import { pureModifier, toBlob } from '../../../../api/helpers';
 import download from '../../../../utils/download';
 
 export const getCommonFilesAction = () => async dispatch => {
@@ -39,9 +39,16 @@ export const getMyFilesAction = () => async dispatch => {
 
 export const getMyFiles = loadingThunk(GET_FILES_LOADING)(getMyFilesAction);
 
-export const uploadFileAction = (file) => async () => {
+export const uploadFileAction = (formData) => async () => {
   try {
-    await api.post('/export/student/upload', file, { headers: { 'Content-Type': 'multipart/form-data', accept: 'multipart/form-data' } });
+    await api.post('/export/student/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data; boundary=',
+        'Accept-Encoding': 'gzip, deflate, br',
+        // accept: 'multipart/form-data',
+      },
+      dataModifier: pureModifier,
+    });
   } catch (e) {
     //
   }
