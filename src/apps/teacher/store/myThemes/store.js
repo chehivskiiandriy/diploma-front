@@ -4,6 +4,7 @@ import * as AC from './actions';
 
 const initialState = {
   themes: [],
+  load: [],
   filters: {
     academicYear: null,
     academicDegree: null,

@@ -32,3 +32,20 @@ export const filteredMyThemesSelector = createSelector(
     ));
   },
 );
+
+export const loadByMyThemesSelector = createSelector(
+  [getMyLoad, getMyThemes],
+  (teacherLoad, myThemes) => (
+    teacherLoad.map(el => {
+      const amountThemesByAc = myThemes && myThemes.filter(i => (
+        i.academicDegreeId === el.academicDegreeId
+        && i.academicYearId === el.academicYearId)).length;
+
+      return {
+        ...el,
+        amountThemesByAc,
+        isFull: el.amount === amountThemesByAc,
+      };
+    })
+  ),
+);
