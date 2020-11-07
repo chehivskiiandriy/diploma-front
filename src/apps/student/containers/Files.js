@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Button from '../../../components/Button';
 
 import { useStudentDispatch, useStudentSelector } from '../store/context';
 import { commonFilesSelector, myFilesSelector } from '../store/files/selectors';
@@ -31,7 +32,13 @@ const Files = () => {
       {commonFiles && commonFiles.map(i => (
         <p key={i.id}>
           {i.name}
-          <button onClick={() => dispatch(downloadFile(i))}>Скачати</button>
+          <Button
+            mode="primary"
+            label="Скачати"
+            onClick={() => dispatch(downloadFile(i))}
+          >
+            Скачати
+          </Button>
         </p>
       ))}
 
@@ -39,7 +46,13 @@ const Files = () => {
       {myFiles && myFiles.map(i => (
         <p key={i.id}>
           {i.name}
-          <button onClick={() => dispatch(downloadFile(i))}>Скачати</button>
+          <Button
+            mode="primary"
+            label="Скачати"
+            onClick={() => dispatch(downloadFile(i))}
+          >
+            Скачати
+          </Button>
         </p>
       ))}
 

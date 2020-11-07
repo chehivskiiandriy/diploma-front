@@ -41,7 +41,6 @@ export const getMyFiles = loadingThunk(GET_FILES_LOADING)(getMyFilesAction);
 
 export const uploadFileAction = (file) => async () => {
   try {
-    console.log('FILE', file);
     await api.post('/export/student/upload', file, { headers: { 'Content-Type': 'multipart/form-data', accept: 'multipart/form-data' } });
   } catch (e) {
     //
@@ -76,9 +75,7 @@ export const deleteFile = loadingThunk(DELETE_FILE_LOADING)(deleteFileAction);
 
 export const downloadFileAction = (file) => async () => {
   try {
-    console.log('FILE', file);
     const blob = await api.post(`/export/file/${file.id}`, null, {}, toBlob);
-    console.log('BLOB', blob);
     download(`${file.name}`, blob);
   } catch (e) {
     //
