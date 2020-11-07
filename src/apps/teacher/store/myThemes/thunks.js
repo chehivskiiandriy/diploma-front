@@ -13,7 +13,8 @@ import {
   UPDATE_MY_THEMES_LOADING,
   DELETE_MY_THEMES_LOADING,
   ACCEPT_REQUEST_LOADING,
-  DECLINE_REQUEST_LOADING, DELETE_STUDENT_FROM_THEME_LOADING,
+  DECLINE_REQUEST_LOADING,
+  DELETE_STUDENT_FROM_THEME_LOADING,
 } from '../../../../store/loading/constants';
 
 export const getMyThemesAction = () => async dispatch => {

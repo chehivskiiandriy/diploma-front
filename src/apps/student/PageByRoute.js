@@ -10,6 +10,7 @@ const Requests = lazy(() => import('./containers/Requests'));
 const MyTheme = lazy(() => import('./containers/MyTheme'));
 const Schedule = lazy(() => import('./containers/Schedule'));
 const TeacherLoad = lazy(() => import('./containers/TeacherLoad'));
+const Files = lazy(() => import('./containers/Files'));
 const Profile = lazy(() => import('../../containers/Profile'));
 
 const PageByRoute = () => (
@@ -21,6 +22,7 @@ const PageByRoute = () => (
       <Route exact path={routes.student.myTheme} component={MyTheme} />
       <Route exact path={routes.student.schedule} component={Schedule} />
       <Route exact path={routes.student.teacherLoad} component={TeacherLoad} />
+      <Route exact path={routes.student.files} component={Files} />
       <Route exact path={routes.logout} component={Logout} />
       <Redirect to={routes.home} />
     </Switch>

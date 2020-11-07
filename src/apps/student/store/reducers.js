@@ -3,6 +3,7 @@ import theme from './theme';
 import themeInfo from './themeInfo';
 import schedule from './schedule';
 import request from './request';
+import files from './files';
 import teacherLoad from './teacherLoad';
 import academicDegree from '../../personal/store/academicDegree';
 import academicYear from '../../personal/store/academicYear';
@@ -20,6 +21,7 @@ const reducers = {
   academicYear,
   student,
   teacher,
+  files,
 };
 
 export default reducers;

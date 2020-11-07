@@ -38,6 +38,7 @@ const routesMap = {
     requests: 'requests',
     teacherLoad: 'teacher-load',
     schedule: 'schedule',
+    files: 'files',
   },
 
   personal: {
