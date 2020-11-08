@@ -11,7 +11,9 @@ import {
   CREATE_TEACHER_LOADING,
   UPDATE_TEACHER_LOADING,
   DELETE_TEACHER_LOADING,
+  UPLOAD_TEACHERS_LOADING,
 } from '../../../../store/loading/constants';
+import { pureModifier } from '../../../../api/helpers';
 
 export const getTeachersAction = () => async dispatch => {
   try {
@@ -60,3 +62,17 @@ export const deleteTeacherAction = id => async dispatch => {
 };
 
 export const deleteTeacher = loadingThunk(DELETE_TEACHER_LOADING)(deleteTeacherAction);
+
+export const uploadTeachersAction = data => async dispatch => {
+  try {
+    await api.post('/users/upload/teachers', data, {
+      withCommonHeaders: false,
+      dataModifier: pureModifier,
+    });
+    dispatch(getTeachers());
+  } catch (e) {
+    //
+  }
+};
+
+export const uploadTeachers = loadingThunk(UPLOAD_TEACHERS_LOADING)(uploadTeachersAction);

@@ -47,11 +47,13 @@ export const GET_STUDENTS_LOADING = 'loading/getStudents';
 export const CREATE_STUDENT_LOADING = 'loading/createStudent';
 export const UPDATE_STUDENT_LOADING = 'loading/updateStudent';
 export const DELETE_STUDENT_LOADING = 'loading/deleteStudent';
+export const UPLOAD_STUDENTS_LOADING = 'loading/uploadStudents';
 
 export const GET_TEACHERS_LOADING = 'loading/getTeachers';
 export const CREATE_TEACHER_LOADING = 'loading/createTeacher';
 export const UPDATE_TEACHER_LOADING = 'loading/updateTeacher';
 export const DELETE_TEACHER_LOADING = 'loading/deleteTeacher';
+export const UPLOAD_TEACHERS_LOADING = 'uploadTeachers';
 
 export const GET_LABORATORIES_LOADING = 'loading/getLaboratories';
 export const CREATE_LABORATORY_LOADING = 'loading/createLaboratory';
