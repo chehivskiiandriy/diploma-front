@@ -46,7 +46,7 @@ const Students = () => {
         Додати студента
       </Button>
       <Button
-        label="Завантажити навантаження"
+        label="Завантажити і додати студентів"
         className="indent-sm-bottom"
         onClick={addFileHandler}
       >
