@@ -74,9 +74,14 @@ const Files = () => {
   }, []);
 
   const uploadFileHandler = ({ target: { files } }) => {
-    const data = new FormData();
-    data.append('file', files[0]);
-    dispatch(uploadFile(data));
+    if (files.length) {
+      const file = files[0];
+      fileRef.current.value = '';
+
+      const data = new FormData();
+      data.append('file', file);
+      dispatch(uploadFile(data));
+    }
   };
 
   const addFileHandler = useCallback(() => {
