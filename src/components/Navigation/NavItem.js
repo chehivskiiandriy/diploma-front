@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
 import { NavLink } from 'react-router-dom';
 
-import Icon from '../Icon';
+// import Icon from '../Icon';
 
 const NavItem = ({
   path, name, icon, exact,
@@ -52,9 +52,9 @@ const NavItem = ({
 
   return (
     <NavLink to={path} exact={exact} className="nav-item" onClick={handler} onMouseDown={onMouseDownHandler}>
-      <div className="nav-icon">
+      {/* <div className="nav-icon">
         <Icon id={icon.id} />
-      </div>
+      </div> */}
       <div className="nav-text">
         {name}
       </div>
