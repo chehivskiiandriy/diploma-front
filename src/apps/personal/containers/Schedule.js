@@ -11,15 +11,27 @@ import { getAcademicYears } from '../store/academicYear/thunks';
 import { getAcademicDegrees } from '../store/academicDegree/thunks';
 import { academicYearsSelector } from '../store/academicYear/selectors';
 import { academicDegreesSelector } from '../store/academicDegree/selectors';
+import { scheduleFiltersSelector } from '../store/schedule/selectors';
 
 const Schedule = () => {
   const dispatch = usePersonalDispatch();
+  const scheduleFilters = usePersonalSelector(scheduleFiltersSelector);
   const academicYears = usePersonalSelector(academicYearsSelector);
   const academicDegrees = usePersonalSelector(academicDegreesSelector);
   const [isOpen, openHandler, closeHandler] = useIsOpen(false);
 
   useEffect(() => {
-    dispatch(getSchedules());
+    const { academicYear, academicDegree } = scheduleFilters;
+
+    if (academicYear && academicDegree) {
+      dispatch(getSchedules({
+        academicYearId: academicYear.value,
+        academicDegreeId: academicDegree.value,
+      }));
+    }
+  }, [scheduleFilters]);
+
+  useEffect(() => {
     if (!academicYears.length) {
       dispatch(getAcademicYears());
     }

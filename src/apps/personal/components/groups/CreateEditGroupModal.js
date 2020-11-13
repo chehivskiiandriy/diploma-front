@@ -78,9 +78,7 @@ const CreateEditGroupModal = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <header className="modal-header">
           <h2>
-            {isEdit ? 'Редагувати' : 'Додати'}
-            &nbsp;
-            групу
+            {`${isEdit ? 'Редагувати' : 'Додати'} групу`}
           </h2>
         </header>
         <div className="modal-body">

@@ -73,9 +73,7 @@ const CreateEditScheduleModal = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <header className="modal-header">
           <h2>
-            {isEdit ? 'Редагувати' : 'Додати'}
-            &nbsp;
-            графік виконання
+            {`${isEdit ? 'Редагувати' : 'Додати'} графік виконання`}
           </h2>
         </header>
         <div className="modal-body">

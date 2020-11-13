@@ -5,6 +5,7 @@ import { useTeacherDispatch, useTeacherSelector } from '../../store/context';
 import { acceptRequest, declineRequest } from '../../store/myThemes/thunks';
 import Modal from '../../../../components/Modal';
 import Button from '../../../../components/Button';
+import FormattedDate from './FormattedDate';
 import { isTaskLoading } from '../../../../store/loading/selectors';
 import { ACCEPT_REQUEST_LOADING, DECLINE_REQUEST_LOADING } from '../../../../store/loading/constants';
 
@@ -32,33 +33,40 @@ const RequestsModal = ({ isOpen, closeHandler, requests }) => {
       </header>
       <div className="modal-body">
         {requests && requests.map(el => (
-          <div key={el.id} className="actions actions--align-center">
+          <div key={el.id} className="actions actions--requests actions--align-center actions--justify-center indent-sm-bottom">
             <div>
-              {el.student.lastName}
-              &nbsp;
-              {el.student.firstName}
-              &nbsp;
-              {el.student.middleName}
-              &nbsp;
-              {el.student.group.name}
+              <div>
+                {el.student.lastName}
+                &nbsp;
+                {el.student.firstName}
+                &nbsp;
+                {el.student.middleName}
+                &nbsp;
+                {el.student.group.name}
+              </div>
+              <FormattedDate>
+                {el.createdAt}
+              </FormattedDate>
             </div>
-            <Button
-              label="Відхилити"
-              size="sm"
-              disabled={loadingAccept || loadingDecline}
-              onClick={() => onDecline(el.id)}
-            >
-              Відхилити
-            </Button>
-            <Button
-              mode="primary"
-              label="Прийняти"
-              size="sm"
-              disabled={loadingAccept || loadingDecline}
-              onClick={() => onAccept(el.id)}
-            >
-              Прийняти
-            </Button>
+            <div>
+              <Button
+                label="Відхилити"
+                size="sm"
+                disabled={loadingAccept || loadingDecline}
+                onClick={() => onDecline(el.id)}
+              >
+                Відхилити
+              </Button>
+              <Button
+                mode="primary"
+                label="Прийняти"
+                size="sm"
+                disabled={loadingAccept || loadingDecline}
+                onClick={() => onAccept(el.id)}
+              >
+                Прийняти
+              </Button>
+            </div>
           </div>
         ))}
       </div>

@@ -20,6 +20,7 @@ const Content = () => {
             <th className="th">Викладач</th>
             <th className="th">Підтверджена</th>
             <th className="th">Напрям лабораторії</th>
+            <th className="th">Дата створення</th>
             <th className="th">Дії</th>
           </tr>
         </thead>

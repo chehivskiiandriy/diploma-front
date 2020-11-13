@@ -1,17 +1,20 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../../../components/Button';
+import toLocaleTime from '../../../../utils/toLocaleTime';
 
 const RequestRow = ({ request, deleteHandler }) => {
   const openDeleteModal = useCallback(() => {
     deleteHandler(request.id);
   }, [request]);
 
+  const createdAt = useMemo(() => toLocaleTime(request.createdAt), [request.createdAt]);
+
   return (
     <tr className="tr">
       <td className="td">
-        {request.status}
+        {request.statusInfo}
       </td>
       <td className="td">
         {request.theme.name}
@@ -24,6 +27,9 @@ const RequestRow = ({ request, deleteHandler }) => {
       </td>
       <td className="td">
         {request.theme.laboratoryDirection && request.theme.laboratoryDirection.name}
+      </td>
+      <td className="td">
+        {createdAt}
       </td>
       <td className="td">
         <div className="actions">
@@ -44,6 +50,7 @@ RequestRow.propTypes = {
   request: PropTypes.shape({
     id: PropTypes.number.isRequired,
     status: PropTypes.string.isRequired,
+    statusInfo: PropTypes.string.isRequired,
     theme: PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
@@ -59,6 +66,7 @@ RequestRow.propTypes = {
         name: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
+    createdAt: PropTypes.string.isRequired,
   }).isRequired,
   deleteHandler: PropTypes.func.isRequired,
 };

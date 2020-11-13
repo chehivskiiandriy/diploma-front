@@ -78,9 +78,7 @@ const CreateEditMyThemeModal = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <header className="modal-header">
           <h2>
-            {isEdit ? 'Редагувати' : 'Додати'}
-            &nbsp;
-            тему
+            {`${isEdit ? 'Редагувати' : 'Додати'} тему`}
           </h2>
         </header>
         <div className="modal-body">

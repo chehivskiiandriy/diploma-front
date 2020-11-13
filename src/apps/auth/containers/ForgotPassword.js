@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -13,6 +13,7 @@ import { resetPassword } from '../../../store/user/thunks';
 
 const ForgotPassword = () => {
   const dispatch = useDispatch();
+  const [sent, setSent] = useState(false);
   const loading = useSelector(state => isTaskLoading(state, LOGIN_LOADING));
   const {
     handleSubmit, register, errors,
@@ -23,7 +24,12 @@ const ForgotPassword = () => {
   ), [isErrorsExist, loading]);
 
   const onSubmit = async data => {
-    dispatch(resetPassword(data));
+    try {
+      await dispatch(resetPassword(data));
+      setSent(true);
+    } catch (e) {
+      //
+    }
   };
 
   return (
@@ -44,12 +50,19 @@ const ForgotPassword = () => {
             autoFocus
           />
         </div>
+        {sent && (
+          <div className="actions">
+            <div>
+              Перевірте електронну пошту
+            </div>
+          </div>
+        )}
         <div className="actions">
           <Button
             type="submit"
             mode="primary"
             label="Submit"
-            disabled={disabled}
+            disabled={disabled || sent}
           >
             Скинути пароль
           </Button>

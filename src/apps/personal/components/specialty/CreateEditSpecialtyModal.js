@@ -54,9 +54,7 @@ const CreateEditAcademicDegreeModal = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <header className="modal-header">
           <h2>
-            {isEdit ? 'Редагувати' : 'Додати'}
-            &nbsp;
-            спеціальність
+            {`${isEdit ? 'Редагувати' : 'Додати'} спеціальність`}
           </h2>
         </header>
         <div className="modal-body">

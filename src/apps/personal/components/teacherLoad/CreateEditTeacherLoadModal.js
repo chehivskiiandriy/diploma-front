@@ -81,9 +81,7 @@ const CreateEditTeacherLoadModal = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <header className="modal-header">
           <h2>
-            {isEdit ? 'Редагувати' : 'Додати'}
-            &nbsp;
-            навантаження
+            {`${isEdit ? 'Редагувати' : 'Додати'} навантаження`}
           </h2>
         </header>
         <div className="modal-body">

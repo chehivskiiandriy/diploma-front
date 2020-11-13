@@ -47,9 +47,7 @@ const CreateEditHeadModal = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <header className="modal-header">
           <h2>
-            {isEdit ? 'Редагувати' : 'Додати'}
-            &nbsp;
-            персонал
+            {`${isEdit ? 'Редагувати' : 'Додати'} персонал`}
           </h2>
         </header>
         <div className="modal-body">

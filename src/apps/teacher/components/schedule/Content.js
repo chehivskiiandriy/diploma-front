@@ -21,6 +21,13 @@ const Content = () => {
           </tr>
         </thead>
         <tbody>
+          {schedules && !schedules.length && (
+            <tr className="tr">
+              <td className="td" colSpan={6}>
+                <center>Виберіть академічний рік і академічний рівень</center>
+              </td>
+            </tr>
+          )}
           {schedules.map(el => (
             <ScheduleRow key={el.id} schedule={el} />
           ))}

@@ -2,8 +2,12 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../../../components/Button';
+import { useStudentSelector } from '../../store/context';
+import { themeInfoExistSelector } from '../../store/themeInfo/selectors';
 
 const ThemeRow = ({ theme, addHandler }) => {
+  const themeInfoExist = useStudentSelector(themeInfoExistSelector);
+
   const openAddModal = useCallback(() => {
     addHandler(theme.id);
   }, [theme]);
@@ -26,15 +30,17 @@ const ThemeRow = ({ theme, addHandler }) => {
         {theme.laboratoryDirection && theme.laboratoryDirection.name}
       </td>
       <td className="td">
-        <div className="actions">
-          <Button
-            size="sm"
-            label="Подати заявку"
-            onClick={openAddModal}
-          >
-            Подати заявку
-          </Button>
-        </div>
+        {!themeInfoExist && (
+          <div className="actions">
+            <Button
+              size="sm"
+              label="Подати заявку"
+              onClick={openAddModal}
+            >
+              Подати заявку
+            </Button>
+          </div>
+        )}
       </td>
     </tr>
   );

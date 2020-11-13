@@ -17,9 +17,9 @@ const Content = () => {
             <th className="th">Студент</th>
             <th className="th">Академічний рік</th>
             <th className="th">Академічний рівень</th>
+            <th className="th">Затверджено</th>
             <th className="th">Дата створення</th>
             <th className="th">Дата редагування</th>
-            <th className="th">Затверджено</th>
           </tr>
         </thead>
         <tbody>

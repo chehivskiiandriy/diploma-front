@@ -1,25 +1,20 @@
 import React from 'react';
 
 import ReactSelect from '../../../../components/ReactSelect';
-import Input from '../../../../components/Input';
-import { usePersonalSelector, usePersonalDispatch } from '../../store/context';
-import { academicYearsOptionsSelector } from '../../store/academicYear/selectors';
-import { academicDegreesOptionsSelector } from '../../store/academicDegree/selectors';
+import { useTeacherSelector, useTeacherDispatch } from '../../store/context';
+import { academicYearsOptionsSelector } from '../../../personal/store/academicYear/selectors';
+import { academicDegreesOptionsSelector } from '../../../personal/store/academicDegree/selectors';
 import { scheduleFiltersSelector } from '../../store/schedule/selectors';
 import { setScheduleFilters } from '../../store/schedule/actions';
 
 const Filters = () => {
-  const dispatch = usePersonalDispatch();
-  const academicYearsOptions = usePersonalSelector(academicYearsOptionsSelector);
-  const academicDegreesOptions = usePersonalSelector(academicDegreesOptionsSelector);
-  const scheduleFilters = usePersonalSelector(scheduleFiltersSelector);
+  const dispatch = useTeacherDispatch();
+  const academicYearsOptions = useTeacherSelector(academicYearsOptionsSelector);
+  const academicDegreesOptions = useTeacherSelector(academicDegreesOptionsSelector);
+  const scheduleFilters = useTeacherSelector(scheduleFiltersSelector);
 
   const handleChange = type => selectedOption => {
     dispatch(setScheduleFilters({ [type]: selectedOption }));
-  };
-
-  const handleInputChange = ({ target: { name, value } }) => {
-    dispatch(setScheduleFilters({ [name]: value }));
   };
 
   return (
@@ -49,15 +44,6 @@ const Filters = () => {
             options={academicDegreesOptions}
           />
         </div>
-      </div>
-      <div className="filters-row">
-        <Input
-          id="name"
-          name="name"
-          value={scheduleFilters.name}
-          onChange={handleInputChange}
-          placeholder="Пошук за назвою..."
-        />
       </div>
     </div>
   );

@@ -43,14 +43,15 @@ export const checkToken = () => async dispatch => {
   }
 };
 
-export const resetPassword = params => async dispatch => {
+export const resetPasswordAction = params => async () => {
   try {
     await api.post('auth/reset-password', params);
-    dispatch(resetPassword());
   } catch (e) {
-    console.log(e);
+    //
   }
 };
+
+export const resetPassword = loadingThunk(LOGIN_LOADING)(resetPasswordAction);
 
 export const recoverPassword = params => async dispatch => {
   try {

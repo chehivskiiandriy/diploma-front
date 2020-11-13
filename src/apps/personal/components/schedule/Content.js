@@ -29,6 +29,13 @@ const Content = () => {
           </tr>
         </thead>
         <tbody>
+          {schedules && !schedules.length && (
+            <tr className="tr">
+              <td className="td" colSpan={9}>
+                <center>Виберіть академічний рік і академічний рівень або добавте розклад</center>
+              </td>
+            </tr>
+          )}
           {schedules.map(el => (
             <ScheduleRow
               key={el.id}

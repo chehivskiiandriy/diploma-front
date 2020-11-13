@@ -50,9 +50,7 @@ const CreateEditAcademicYearModal = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <header className="modal-header">
           <h2>
-            {isEdit ? 'Редагувати' : 'Додати'}
-            &nbsp;
-            академічний рік
+            {`${isEdit ? 'Редагувати' : 'Додати'} академічний рік`}
           </h2>
         </header>
         <div className="modal-body">

@@ -13,9 +13,9 @@ import {
   DELETE_SCHEDULE_LOADING,
 } from '../../../../store/loading/constants';
 
-export const getSchedulesAction = () => async dispatch => {
+export const getSchedulesAction = ({ academicYearId, academicDegreeId }) => async dispatch => {
   try {
-    const data = await api.get('/schedule');
+    const data = await api.get(`/schedule/${academicYearId}/${academicDegreeId}`);
 
     dispatch(setSchedules(data));
   } catch (e) {

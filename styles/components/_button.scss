@@ -59,8 +59,17 @@
 .actions {
   display: flex;
 
+  &--requests:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 12px;
+  }
+
   &--align-center {
     align-items: center;
+  }
+
+  &--justify-center {
+    justify-content: space-between;
   }
 
   & > *:not(:last-child) {

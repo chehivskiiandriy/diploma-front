@@ -179,7 +179,7 @@
 
 .main-container {
   position: relative;
-  min-height: 100px;
+  min-height: 300px;
   margin: 56px 0 0 0;
   padding: 20px 30px;
   transition: margin-left .2s;
@@ -265,6 +265,11 @@
     @media (max-width: 800px) {
       font-size: 18px;
     }
+  }
+
+  .role {
+    font-size: 16px;
+    color: #3d3d3d;
   }
 }
 

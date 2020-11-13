@@ -68,9 +68,7 @@ const CreateEditLaboratoryDirectionModal = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <header className="modal-header">
           <h2>
-            {isEdit ? 'Редагувати' : 'Додати'}
-            &nbsp;
-            напрям лабораторії
+            {`${isEdit ? 'Редагувати' : 'Додати'} напрям лабораторії`}
           </h2>
         </header>
         <div className="modal-body">

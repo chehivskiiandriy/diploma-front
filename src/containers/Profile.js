@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import Button from '../components/Button';
@@ -6,15 +6,33 @@ import ChangePasswordModal from '../components/ChangePasswordModal';
 import { userSelector } from '../store/user/selectors';
 import useIsOpen from '../hooks/useIsOpen';
 
+const roles = {
+  TEACHER: 'Викладач',
+  PERSONAL: 'Навчальний персонал',
+  STUDENT: 'Студент',
+  TEACHER_HEAD: 'Завідувач кафедри',
+};
+
 const Profile = () => {
   const [isOpen, openHandler, closeHandler] = useIsOpen(false);
 
   const user = useSelector(userSelector);
 
+  const role = useMemo(() => {
+    if (user.isHead) {
+      return roles.TEACHER_HEAD;
+    }
+
+    return roles[user.role];
+  }, [user]);
+
   return (
     <div className="profile">
       <div className="name">
         {`${user.lastName} ${user.firstName} ${user.middleName}`}
+      </div>
+      <div className="role indent-2xs-top indent-2xs-bottom">
+        {`${role}`}
       </div>
       <a className="email" href={`mailto:${user.email}`}>{user.email}</a>
       {user.degree && <div className="indent-2xs-top">{`Наукова ступінь - ${user.degree.name}`}</div>}
